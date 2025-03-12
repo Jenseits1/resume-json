@@ -1,4 +1,6 @@
 import { FunctionComponent } from "react";
+import { Subtitle } from "./subtitle";
+import { SecondarySubtitle } from "./secondary-subtitle";
 
 interface DateLocationProps {
 	startDate: string;
@@ -15,13 +17,10 @@ export const DateLocation: FunctionComponent<DateLocationProps> = ({
 	location,
 }) => {
 	return (
-		<div className="text-gray-400 font-semibold">
-			<p>
-				{startDate} - {endDate}
-			</p>
-			<p>
-				{location.state}, {location.country}
-			</p>
+		<div className="flex flex-col items-end">
+			<Subtitle>{`${location.state}, ${location.country}`}</Subtitle>
+
+			<SecondarySubtitle>{`${startDate} - ${endDate}`}</SecondarySubtitle>
 		</div>
 	);
 };

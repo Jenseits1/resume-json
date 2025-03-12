@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
 import { Section } from "./components/section";
 import { DateLocation } from "./components/date-location";
+import { Subtitle } from "./components/subtitle";
+import { SecondarySubtitle } from "./components/secondary-subtitle";
 
 interface DefaultEducationProps {
 	education: {
@@ -21,33 +23,23 @@ export const DefaultEducation: FunctionComponent<DefaultEducationProps> = ({
 	return (
 		<div>
 			<Section sectionTitle="Education">
-				<div className="space-y-4">
-					{education.map(
-						(
-							{
-								institution,
-								degree,
-								startDate,
-								endDate,
-								location,
-							},
-							index
-						) => (
-							<div className="flex justify-between" key={index}>
-								<div>
-									<p className="font-semibold">
-										{institution}
-									</p>
-									<p>{degree}</p>
-								</div>
-
-								<DateLocation
-									{...{ startDate, endDate, location }}
-								/>
+				{education.map(
+					(
+						{ institution, degree, startDate, endDate, location },
+						index
+					) => (
+						<div className="flex justify-between" key={index}>
+							<div>
+								<Subtitle>{institution}</Subtitle>
+								<SecondarySubtitle>{degree}</SecondarySubtitle>
 							</div>
-						)
-					)}
-				</div>
+
+							<DateLocation
+								{...{ startDate, endDate, location }}
+							/>
+						</div>
+					)
+				)}
 			</Section>
 		</div>
 	);

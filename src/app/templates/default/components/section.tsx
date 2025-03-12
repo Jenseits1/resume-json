@@ -11,16 +11,11 @@ export const Section: FunctionComponent<SectionProps> = ({
 }) => {
 	return (
 		<div>
-			<h2
-				className="text-[3.5rem] mb-4"
-				style={{ fontVariant: "small-caps" }}
-			>
-				{sectionTitle}
-			</h2>
+			<h2 className="font-bold uppercase">{sectionTitle}</h2>
 
-			<hr className="border-1 border-black" />
+			<hr className="border-black" />
 
-			<div className="pt-4">{children}</div>
+			<div>{children}</div>
 		</div>
 	);
 };

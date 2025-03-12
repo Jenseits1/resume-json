@@ -143,13 +143,17 @@
   }
 }
 
-
-html {
-  font-size: 45%;
+.a4 {
+  width: 210mm;
 }
 
-@media screen and (min-width: 768px) {
-  html {
-      font-size: 62.5%;
+@media print {
+  body * {
+    visibility: hidden; 
   }
+
+  .a4, .a4 * {
+    visibility: visible; 
+  }
+
 }

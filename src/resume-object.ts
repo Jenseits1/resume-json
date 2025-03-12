@@ -1,12 +1,11 @@
 export const resumeInfo = {
 	header: {
-		name: "Washington Bueno",
+		fullName: "Washington Bueno",
 		contacts: {
 			phone: "+55 11 96311-4982",
 			email: "washingtonfbueno@hotmail.com",
 			github: "https://github.com/washingtonfbueno",
 			linkedin: "https://linkedin.com/in/washingtonfbueno",
-			website: "https://washingtonfbueno.netlify.app",
 		},
 	},
 	education: [
@@ -16,7 +15,7 @@ export const resumeInfo = {
 			startDate: "2023",
 			endDate: "December 2025",
 			location: {
-				state: "SP",
+				state: "São Paulo",
 				country: "Brazil",
 			},
 		},
@@ -26,98 +25,72 @@ export const resumeInfo = {
 			startDate: "2016",
 			endDate: "December 2020",
 			location: {
-				state: "SP",
+				state: "São Paulo",
 				country: "Brazil",
 			},
 		},
 	],
-	certificates: [
-		{
-			institution: "University of California San Diego",
-			title: "Data Structures and Algorithms Specialization",
-		},
-		{
-			institution: "University of Michigan",
-			title: "Python 3 Specialization",
-		},
-	],
 	skills: {
-		hardSkills: [
-			"C",
+		technicalSkills: [
 			"Python",
 			"JavaScript",
+			"C",
 			"Java",
 			"HTML",
 			"CSS",
 			"Tailwind CSS",
 			"React.js",
-			"Node.js",
 			"Express.js",
 			"MySQL",
-			"MongoDB",
-			"GitHub",
 			"Git",
+			"Data Structures",
+			"Algorithms",
 		],
-		softSkills: [
-			"Problem solving",
-			"Teamwork",
-			"Communication",
-			"Adaptability",
-		],
-		languages: [
-			{
-				language: "Portuguese",
-				proficiency: "Native",
-			},
-			{
-				language: "English",
-				proficiency: "Fluent",
-			},
-		],
+		languages: ["Portuguese", "English"],
 	},
 	projects: [
 		{
-			name: "Expression Parser",
-			technologies: ["Tailwind CSS", "TypeScript", "Next.js"],
+			title: "Expression Parser",
+			technologies: ["Python"],
 			bulletPoints: [
-				"Built using TypeScript and Next.js to support both server-side and client-side evaluation.",
-				"Handled multiple operations with proper operator precedence and error handling.",
-				"Designed a clean UI with Tailwind CSS for ease of use and performance.",
+				"Developed a mathematical expression parser using Python with recursive descent parsing for correct operator precedence",
+				"Handled division by zero and syntax errors to ensure robustness and reliability",
+				"Improved knowledge of compiler design and how programming languages process input",
 			],
 		},
 		{
-			name: "Sudoku Solver",
+			title: "Portfolio",
 			technologies: ["Tailwind CSS", "TypeScript", "React.js"],
 			bulletPoints: [
-				"Implemented a recursive algorithm to solve the puzzle.",
-				"Created an animation effect to visualize each step of the solving process.",
-				"Built with React.js to allow for interactive features like step-by-step solving.",
+				"Built a personal portfolio using React.js, TypeScript, and Tailwind CSS to showcase projects and skills",
+				"Designed the site to be visually appealing and easy to navigate across different screen sizes",
+				"Served as a practice project to improve front-end development skills with modern technologies",
 			],
 		},
 		{
-			name: "Portfolio",
-			technologies: ["Tailwind CSS", "TypeScript", "React.js"],
+			title: "Resume Generator",
+			technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
 			bulletPoints: [
-				"Developed a responsive portfolio website using React.js and Tailwind CSS.",
-				"Integrated a blog section to display technical articles and tutorials.",
-				"Optimized the site for performance and accessibility.",
+				"Developed a resume generator using Next.js and TypeScript to streamline resume creation",
+				"Implemented dynamic templates and form validation to simplify formatting",
+				"Facilitates the generation of structured resumes by allowing users to input their information and receive a well-formatted document",
 			],
 		},
 	],
 	experience: [
 		{
-			role: "Online Helper (Programming Communities)",
-			company: "Discord",
+			role: "Coding Support Assistant",
+			company: "Discord Communities",
 			startDate: "2020",
 			endDate: "Present",
 			location: {
-				state: "Remote",
-				country: "Global",
+				state: "São Paulo",
+				country: "Brazil",
 			},
 			bulletPoints: [
-				"Provided technical assistance in various programming languages including Python, JavaScript, and C.",
-				"Helped members troubleshoot coding issues and improve their coding skills.",
-				"Collaborated with others to develop solutions for common coding problems in live chat sessions.",
+				"Helped community members debug and improve code in Python and JavaScript",
+				"Assisted users with problem-solving and understanding programming concepts",
+				"Providing support contributed to reinforcing knowledge and maintaining familiarity with learned topics",
 			],
 		},
 	],
