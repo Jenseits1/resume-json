@@ -1,11 +1,13 @@
-import { resumeInfo } from "@/resume-object";
 import { FunctionComponent } from "react";
 import { DefaultExperience } from "../templates/default/default-experience";
+import { IExperience } from "../types/resume.types";
 
-interface ExperienceProps {}
+interface ExperienceProps {
+	experience: IExperience[];
+}
 
-export const Experience: FunctionComponent<ExperienceProps> = () => {
-	const experience = resumeInfo.experience;
-
+export const Experience: FunctionComponent<ExperienceProps> = ({
+	experience,
+}) => {
 	return <DefaultExperience experience={experience} />;
 };

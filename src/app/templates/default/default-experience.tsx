@@ -1,61 +1,48 @@
 import { FunctionComponent } from "react";
 import { Section } from "./components/section";
 import { Subtitle } from "./components/subtitle";
-import { DateLocation } from "./components/date-location";
 import { SecondarySubtitle } from "./components/secondary-subtitle";
+import { DateLocation } from "./components/date-location";
+import { BulletPoint } from "./components/bullet-point";
+import { View, StyleSheet, Text } from "@react-pdf/renderer";
+import { IExperience } from "@/app/types/resume.types";
+
+const styles = StyleSheet.create({
+	experienceContainer: {},
+	header: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-between",
+	},
+});
 
 interface DefaultExperienceProps {
-	experience: {
-		role: string;
-		company: string;
-		startDate: string;
-		endDate: string;
-		location: {
-			state: string;
-			country: string;
-		};
-		bulletPoints: string[];
-	}[];
+	experience: IExperience[];
 }
 
 export const DefaultExperience: FunctionComponent<DefaultExperienceProps> = ({
 	experience,
 }) => {
 	return (
-		<Section sectionTitle="Experience">
+		<Section sectionTitle="experience">
 			{experience.map(
-				(
-					{
-						role,
-						company,
-						startDate,
-						endDate,
-						location,
-						bulletPoints,
-					},
-					index
-				) => (
-					<div key={index}>
-						<div className="flex justify-between">
-							<div>
+				({ role, company, date, location, bulletPoints }, index) => (
+					<View key={index} style={styles.experienceContainer}>
+						<View style={styles.header}>
+							<View
+								style={{
+									display: "flex",
+									flexDirection: "column",
+								}}
+							>
 								<Subtitle>{company}</Subtitle>
 								<SecondarySubtitle>{role}</SecondarySubtitle>
-							</div>
+							</View>
+							<DateLocation {...{ date, location }} />
+						</View>
 
-							<DateLocation
-								{...{
-									startDate,
-									endDate,
-									location,
-								}}
-							/>
-						</div>
-						<ul className="list-disc pl-8">
-							{bulletPoints.map((text, index) => (
-								<li key={index}>{text}</li>
-							))}
-						</ul>
-					</div>
+						<BulletPoint bulletPoints={bulletPoints} />
+					</View>
 				)
 			)}
 		</Section>

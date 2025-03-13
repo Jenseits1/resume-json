@@ -1,4 +1,12 @@
 import { FunctionComponent } from "react";
+import { Text, StyleSheet } from "@react-pdf/renderer";
+
+// Define styles for SecondarySubtitle
+const styles = StyleSheet.create({
+	subtitle: {
+		fontStyle: "italic", // Equivalent to italic class
+	},
+});
 
 interface SecondarySubtitleProps {
 	children: string;
@@ -7,5 +15,5 @@ interface SecondarySubtitleProps {
 export const SecondarySubtitle: FunctionComponent<SecondarySubtitleProps> = ({
 	children,
 }) => {
-	return <h3 className="italic">{children}</h3>;
+	return <Text style={styles.subtitle}>{children}</Text>;
 };

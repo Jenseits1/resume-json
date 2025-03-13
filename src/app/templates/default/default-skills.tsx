@@ -1,12 +1,19 @@
 import { FunctionComponent } from "react";
+import { View, Text, StyleSheet } from "@react-pdf/renderer";
 import { Section } from "./components/section";
 import { Subtitle } from "./components/subtitle";
+import { ISkills } from "@/app/types/resume.types";
+
+const styles = StyleSheet.create({
+	sectionContent: {
+		display: "flex",
+		flexDirection: "column",
+		paddingRight: 16,
+	},
+});
 
 interface DefaultSkillsProps {
-	skills: {
-		technicalSkills: string[];
-		languages: string[];
-	};
+	skills: ISkills[];
 }
 
 export const DefaultSkills: FunctionComponent<DefaultSkillsProps> = ({
@@ -14,17 +21,12 @@ export const DefaultSkills: FunctionComponent<DefaultSkillsProps> = ({
 }) => {
 	return (
 		<Section sectionTitle="Skills">
-			{/* Technical Skills */}
-			<div>
-				<Subtitle>Technical Skills</Subtitle>
-				<p>{skills.technicalSkills.join(", ")}</p>
-			</div>
-
-			{/* Languages */}
-			<div>
-				<Subtitle>Spoken Languages</Subtitle>
-				<p>{skills.languages.map((language) => language).join(", ")}</p>
-			</div>
+			{skills.map(({ type, skills }, index) => (
+				<View key={index} style={styles.sectionContent}>
+					<Subtitle>{type}</Subtitle>
+					<Text>{skills.join(", ")}</Text>
+				</View>
+			))}
 		</Section>
 	);
 };

@@ -1,5 +1,5 @@
 "use client";
-import { resumeInfo } from "@/resume-object";
+import { resumeObject } from "@/resume-object";
 import {
 	createContext,
 	FunctionComponent,
@@ -7,6 +7,7 @@ import {
 	useEffect,
 	useState,
 } from "react";
+import { IResume } from "../types/resume.types";
 
 interface ResumeProviderProps {
 	children: React.ReactNode;
@@ -14,7 +15,10 @@ interface ResumeProviderProps {
 
 interface ResumeContextType {
 	setSection: (section: string, data: any) => void;
-	getSection: (section: string) => any;
+	addResume: (name: string, newResume: any) => void;
+	removeResume: (name: string) => void;
+	setActiveResume: (name: string) => void;
+	resume: IResume | {};
 }
 
 export const ResumeContext = createContext<ResumeContextType | null>(null);
@@ -22,33 +26,70 @@ export const ResumeContext = createContext<ResumeContextType | null>(null);
 export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 	children,
 }) => {
-	const [userResume, setUserResume] = useState<any>(null);
+	const [resumes, setResumes] = useState<any>(null);
+	const [currResume, setCurrResume] = useState<string | null>(null);
 
 	useEffect(() => {
-		// Check if resume is already stored in localStorage
-		const storedResume = localStorage.getItem("userResume");
-		if (storedResume) {
-			setUserResume(JSON.parse(storedResume));
+		// Check if resumes are already stored in localStorage
+		const storedResumes = localStorage.getItem("resumes");
+
+		if (storedResumes) {
+			setResumes(JSON.parse(storedResumes));
+			setCurrResume("default");
 		} else {
-			setUserResume(resumeInfo); // Default if no resume in localStorage
+			// If no resumes in localStorage, set default resume
+			const defaultResumes = { default: resumeObject };
+
+			setResumes(defaultResumes);
+			setCurrResume("default");
+			localStorage.setItem("resumes", JSON.stringify(defaultResumes)); // Set the default resume in localStorage
 		}
 	}, []);
 
 	const setSection = (section: string, data: any) => {
-		setUserResume((prevResume: any) => {
-			const updatedResume = { ...prevResume };
-			updatedResume[section] = data;
-			localStorage.setItem("userResume", JSON.stringify(updatedResume));
-			return updatedResume;
+		if (!currResume || !resumes) return;
+
+		// Update the specific section of the active resume
+		setResumes((prevResumes: any) => {
+			const updatedResumes = { ...prevResumes };
+			updatedResumes[currResume][section] = data;
+			localStorage.setItem("resumes", JSON.stringify(updatedResumes)); // Save updated resumes to localStorage
+			return updatedResumes;
 		});
 	};
 
-	const getSection = (section: string) => {
-		return userResume ? userResume[section] : null;
+	const addResume = (name: string, newResume: any) => {
+		setResumes((prevResumes: any) => {
+			const updatedResumes = { ...prevResumes, [name]: newResume };
+			localStorage.setItem("resumes", JSON.stringify(updatedResumes));
+			return updatedResumes;
+		});
+	};
+
+	const removeResume = (name: string) => {
+		setResumes((prevResumes: any) => {
+			const { [name]: removed, ...updatedResumes } = prevResumes;
+			localStorage.setItem("resumes", JSON.stringify(updatedResumes));
+			return updatedResumes;
+		});
+	};
+
+	const setActiveResume = (name: string) => {
+		if (resumes && resumes[name]) {
+			setCurrResume(name);
+		}
 	};
 
 	return (
-		<ResumeContext.Provider value={{ setSection, getSection }}>
+		<ResumeContext.Provider
+			value={{
+				setSection,
+				resume: resumes && currResume && resumes[currResume],
+				addResume,
+				removeResume,
+				setActiveResume,
+			}}
+		>
 			{children}
 		</ResumeContext.Provider>
 	);

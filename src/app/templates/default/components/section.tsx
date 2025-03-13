@@ -1,7 +1,27 @@
 import { FunctionComponent } from "react";
+import { Text, View, StyleSheet } from "@react-pdf/renderer";
+
+// Define styles for the section
+const styles = StyleSheet.create({
+	section: {
+		marginBottom: 8,
+	},
+
+	title: {
+		fontWeight: "bold", // Equivalent to font-bold
+		textTransform: "uppercase", // Equivalent to uppercase
+	},
+	divider: {
+		display: "flex", // Flex to make the title span full width
+
+		borderBottomWidth: 1, // Adds the border (divider)
+		borderColor: "black", // Black color for the divider
+	},
+	content: {},
+});
 
 interface SectionProps {
-	sectionTitle: string;
+	sectionTitle?: string;
 	children: React.ReactNode;
 }
 
@@ -10,12 +30,16 @@ export const Section: FunctionComponent<SectionProps> = ({
 	children,
 }) => {
 	return (
-		<div>
-			<h2 className="font-bold uppercase">{sectionTitle}</h2>
+		<View style={styles.section}>
+			{sectionTitle && (
+				<>
+					<Text style={styles.title}>{sectionTitle}</Text>
 
-			<hr className="border-black" />
+					<View style={styles.divider} />
+				</>
+			)}
 
-			<div>{children}</div>
-		</div>
+			<View style={styles.content}>{children}</View>
+		</View>
 	);
 };

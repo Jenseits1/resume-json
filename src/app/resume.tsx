@@ -1,43 +1,34 @@
 "use client";
+import { FunctionComponent } from "react";
+import dynamic from "next/dynamic";
+import { ResumePreview } from "./components/resume-preview";
 
-import { FunctionComponent, useRef } from "react";
-import { Header } from "./components/header";
-import { Education } from "./components/education";
-import { Skills } from "./components/skills";
-import { Projects } from "./components/projects";
-import { Experience } from "./components/experience";
+// Dynamically import PDFDownloadLink (Client-side only)
+const PDFDownloadLink = dynamic(
+	() => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
+	{ ssr: false }
+);
 
 interface ResumeProps {}
 
 export const Resume: FunctionComponent<ResumeProps> = () => {
-	const resumeRef = useRef<HTMLDivElement>(null);
-
-	const handlePrint = () => {
-		// Hide all content except the .a4 component
-		const originalBodyVisibility = document.body.style.visibility;
-		document.body.style.visibility = "hidden";
-		if (resumeRef.current) {
-			resumeRef.current.style.visibility = "visible"; // Show only the .a4 component
-		}
-
-		// Trigger the print dialog
-		window.print();
-
-		// Restore visibility after print
-		document.body.style.visibility = originalBodyVisibility;
-	};
-
 	return (
-		<div className="flex flex-col items-center bg-gray-200 p-4">
-			<div
-				ref={resumeRef}
-				className="a4 bg-white max-w-[1024px] p-8 text-base"
-			>
-				<Header />
-				<Education />
-				<Skills />
-				<Projects />
-				<Experience />
+		<div className="flex flex-col items-center bg-gray-200 h-screen px-16">
+			{/* {PDFDownloadLink && (
+				<PDFDownloadLink document={<ResumePDF />} fileName="resume.pdf">
+					{({ loading }) =>
+						loading ? (
+							<Button>Loading PDF...</Button>
+						) : (
+							<Button>Baixar PDF</Button>
+						)
+					}
+				</PDFDownloadLink>
+			)} */}
+
+			<div className="flex w-full h-full">
+				<div className="flex flex-1 bg-red-300"></div>
+				<ResumePreview />
 			</div>
 		</div>
 	);

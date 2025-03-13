@@ -1,4 +1,4 @@
-export const resumeInfo = {
+export const resumeObject = {
 	header: {
 		fullName: "Washington Bueno",
 		contacts: {
@@ -12,8 +12,10 @@ export const resumeInfo = {
 		{
 			institution: "Universidade Presbiteriana Mackenzie",
 			degree: "Computer Information Systems",
-			startDate: "2023",
-			endDate: "December 2025",
+			date: {
+				start: "2023",
+				end: "Dec 2025",
+			},
 			location: {
 				state: "São Paulo",
 				country: "Brazil",
@@ -22,32 +24,38 @@ export const resumeInfo = {
 		{
 			institution: "Universidade Nove de Julho",
 			degree: "Civil Engineering",
-			startDate: "2016",
-			endDate: "December 2020",
+			date: {
+				start: "2016",
+				end: "Dec 2020",
+			},
+
 			location: {
 				state: "São Paulo",
 				country: "Brazil",
 			},
 		},
 	],
-	skills: {
-		technicalSkills: [
-			"Python",
-			"JavaScript",
-			"C",
-			"Java",
-			"HTML",
-			"CSS",
-			"Tailwind CSS",
-			"React.js",
-			"Express.js",
-			"MySQL",
-			"Git",
-			"Data Structures",
-			"Algorithms",
-		],
-		languages: ["Portuguese", "English"],
-	},
+	skills: [
+		{
+			type: "Technical Skills",
+			skills: [
+				"Python",
+				"JavaScript",
+				"C",
+				"Java",
+				"HTML",
+				"CSS",
+				"Tailwind CSS",
+				"React.js",
+				"Express.js",
+				"MySQL",
+				"Git",
+				"Data Structures",
+				"Algorithms",
+			],
+		},
+		{ type: "Spoken Languages", skills: ["Portuguese", "English"] },
+	],
 	projects: [
 		{
 			title: "Expression Parser",
@@ -81,8 +89,10 @@ export const resumeInfo = {
 		{
 			role: "Coding Support Assistant",
 			company: "Discord Communities",
-			startDate: "2020",
-			endDate: "Present",
+			date: {
+				start: "2020",
+				end: "Present",
+			},
 			location: {
 				state: "São Paulo",
 				country: "Brazil",

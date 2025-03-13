@@ -1,30 +1,29 @@
 import { FunctionComponent } from "react";
 import { Section } from "./components/section";
 import { Subtitle } from "./components/subtitle";
+import { View, Text, StyleSheet } from "@react-pdf/renderer";
+import { BulletPoint } from "./components/bullet-point";
+import { IProject } from "@/app/types/resume.types";
+
+const styles = StyleSheet.create({
+	projectContainer: {},
+});
 
 interface DefaultProjectsProps {
-	projects: {
-		title: string;
-		technologies: string[];
-		bulletPoints: string[];
-	}[];
+	projects: IProject[];
 }
 
 export const DefaultProjects: FunctionComponent<DefaultProjectsProps> = ({
 	projects,
 }) => {
 	return (
-		<Section sectionTitle="Projects">
+		<Section sectionTitle="projects">
 			{projects.map(({ title, technologies, bulletPoints }, index) => (
-				<div key={index}>
+				<View key={index}>
 					<Subtitle>{title}</Subtitle>
 
-					<ul className="list-disc pl-8">
-						{bulletPoints.map((text, index) => (
-							<li key={index}>{text}</li>
-						))}
-					</ul>
-				</div>
+					<BulletPoint bulletPoints={bulletPoints} />
+				</View>
 			))}
 		</Section>
 	);

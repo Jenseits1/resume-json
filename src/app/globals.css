@@ -143,17 +143,3 @@
   }
 }
 
-.a4 {
-  width: 210mm;
-}
-
-@media print {
-  body * {
-    visibility: hidden; 
-  }
-
-  .a4, .a4 * {
-    visibility: visible; 
-  }
-
-}

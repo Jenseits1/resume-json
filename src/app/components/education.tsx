@@ -1,14 +1,12 @@
-"use client";
-
 import { FunctionComponent } from "react";
 import { DefaultEducation } from "../templates/default/default-education";
-import { useResume } from "../contexts/resume.context";
 
-interface EducationProps {}
+import { IEducation } from "../types/resume.types";
 
-export const Education: FunctionComponent<EducationProps> = () => {
-	const resume = useResume();
-	const education = resume.getSection("education") || [];
+interface EducationProps {
+	education: IEducation[];
+}
 
+export const Education: FunctionComponent<EducationProps> = ({ education }) => {
 	return <DefaultEducation education={education} />;
 };
