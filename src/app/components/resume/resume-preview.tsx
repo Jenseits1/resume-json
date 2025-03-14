@@ -1,7 +1,8 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import { FunctionComponent } from "react";
+
+import { useResume } from "../../contexts/resume.context";
 import { ResumeDocument } from "./resume-document";
-import { useResume } from "../contexts/resume.context";
 
 interface ResumePreviewProps {}
 

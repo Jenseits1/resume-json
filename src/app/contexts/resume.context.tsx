@@ -1,5 +1,4 @@
 "use client";
-import { resumeObject } from "@/resume-object";
 import {
 	createContext,
 	FunctionComponent,
@@ -8,6 +7,7 @@ import {
 	useState,
 } from "react";
 import { IResume } from "../types/resume.types";
+import { portugueseResume } from "@/resume-object";
 
 interface ResumeProviderProps {
 	children: React.ReactNode;
@@ -38,7 +38,7 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 			setCurrResume("default");
 		} else {
 			// If no resumes in localStorage, set default resume
-			const defaultResumes = { default: resumeObject };
+			const defaultResumes = { default: portugueseResume };
 
 			setResumes(defaultResumes);
 			setCurrResume("default");

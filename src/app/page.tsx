@@ -1,10 +1,10 @@
 import { ResumeProvider } from "./contexts/resume.context";
-import { Resume } from "./resume";
+import { Main } from "./main";
 
 export default function Home() {
 	return (
 		<ResumeProvider>
-			<Resume />
+			<Main />
 		</ResumeProvider>
 	);
 }

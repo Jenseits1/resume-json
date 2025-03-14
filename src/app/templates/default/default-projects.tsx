@@ -17,7 +17,7 @@ export const DefaultProjects: FunctionComponent<DefaultProjectsProps> = ({
 	projects,
 }) => {
 	return (
-		<Section sectionTitle="projects">
+		<Section sectionTitle="projetos">
 			{projects.map(({ title, technologies, bulletPoints }, index) => (
 				<View key={index}>
 					<Subtitle>{title}</Subtitle>

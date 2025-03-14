@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
-import { DefaultHeader } from "../templates/default/default-header";
-
-import { IHeader } from "../types/resume.types";
+import { IHeader } from "@/app/types/resume.types";
+import { DefaultHeader } from "@/app/templates/default/default-header";
 
 interface HeaderProps {
 	header: IHeader;

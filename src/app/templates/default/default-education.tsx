@@ -27,7 +27,7 @@ export const DefaultEducation: FunctionComponent<DefaultEducationProps> = ({
 	education,
 }) => {
 	return (
-		<Section sectionTitle="education">
+		<Section sectionTitle="educação">
 			{education.map(({ institution, degree, date, location }, index) => (
 				<View style={styles.educationItem} key={index}>
 					<View style={styles.educationH}>

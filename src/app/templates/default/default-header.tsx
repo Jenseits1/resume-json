@@ -31,6 +31,10 @@ const handleHref = (key: string, val: string) => {
 		return `mailto:${val}`;
 	}
 
+	if (key === "phone") {
+		return "";
+	}
+
 	return val;
 };
 

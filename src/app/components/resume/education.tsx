@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { DefaultEducation } from "../templates/default/default-education";
+import { DefaultEducation } from "../../templates/default/default-education";
 
-import { IEducation } from "../types/resume.types";
+import { IEducation } from "../../types/resume.types";
 
 interface EducationProps {
 	education: IEducation[];

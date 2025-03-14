@@ -1,6 +1,6 @@
+import { DefaultProjects } from "@/app/templates/default/default-projects";
+import { IProject } from "@/app/types/resume.types";
 import { FunctionComponent } from "react";
-import { DefaultProjects } from "../templates/default/default-projects";
-import { IProject } from "../types/resume.types";
 
 interface ProjectsProps {
 	projects: IProject[];

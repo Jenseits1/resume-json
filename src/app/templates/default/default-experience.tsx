@@ -24,7 +24,7 @@ export const DefaultExperience: FunctionComponent<DefaultExperienceProps> = ({
 	experience,
 }) => {
 	return (
-		<Section sectionTitle="experience">
+		<Section sectionTitle="experiência">
 			{experience.map(
 				({ role, company, date, location, bulletPoints }, index) => (
 					<View key={index} style={styles.experienceContainer}>

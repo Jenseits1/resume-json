@@ -20,7 +20,7 @@ export const DefaultSkills: FunctionComponent<DefaultSkillsProps> = ({
 	skills,
 }) => {
 	return (
-		<Section sectionTitle="Skills">
+		<Section sectionTitle="Habilidades">
 			{skills.map(({ type, skills }, index) => (
 				<View key={index} style={styles.sectionContent}>
 					<Subtitle>{type}</Subtitle>

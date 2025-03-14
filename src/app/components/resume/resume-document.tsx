@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Document, Page, StyleSheet } from "@react-pdf/renderer";
+
+import { IResume } from "../../types/resume.types";
 import { Header } from "./header";
 import { Education } from "./education";
 import { Skills } from "./skills";
 import { Projects } from "./projects";
 import { Experience } from "./experience";
-import { IResume } from "../types/resume.types";
 
 // Define the styles for the PDF
 const styles = StyleSheet.create({
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		flexDirection: "column",
 		padding: 36,
-		fontFamily: "Helvetica",
+		fontFamily: "Times-Roman",
 		wrap: false,
 		wordBreak: "break-word",
 	},

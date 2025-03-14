@@ -1,6 +1,6 @@
+import { DefaultExperience } from "@/app/templates/default/default-experience";
+import { IExperience } from "@/app/types/resume.types";
 import { FunctionComponent } from "react";
-import { DefaultExperience } from "../templates/default/default-experience";
-import { IExperience } from "../types/resume.types";
 
 interface ExperienceProps {
 	experience: IExperience[];
