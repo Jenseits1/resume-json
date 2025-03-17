@@ -11,50 +11,51 @@ export interface IHeader {
 	};
 }
 
+// Location interface
 export interface ILocation {
 	state: string;
 	country: string;
 }
 
+// Date interface
 export interface IDate {
-	start: string;
-	end: string;
+	startDate: string;
+	endDate: string;
 }
 
-export interface IEducation {
+// Education, Skills, Project, Experience interfaces
+export interface IEducation extends IDate, ILocation {
 	institution: string;
 	degree: string;
-	date: IDate;
-	location: ILocation;
 }
 
-// Skills interface
 export interface ISkills {
-	type: string;
+	category: string;
 	skills: string[];
 }
 
-// Project interface
 export interface IProject {
 	title: string;
-	technologies: string[];
-	bulletPoints: string[];
+	description: string[];
 }
 
-// Experience interface
-export interface IExperience {
+export interface IExperience extends IDate, ILocation {
 	role: string;
+	responsibilities: string[];
 	company: string;
-	date: IDate;
-	location: ILocation;
-	bulletPoints: string[];
+}
+
+// Generic Section Interface
+export interface IResumeSection<T> {
+	title: string;
+	items: T[];
 }
 
 // Resume interface (for the entire resume object)
 export interface IResume {
 	header?: IHeader;
-	education?: IEducation[];
-	skills?: ISkills[];
-	projects?: IProject[];
-	experience?: IExperience[];
+	education?: IResumeSection<IEducation>;
+	skills?: IResumeSection<ISkills>;
+	projects?: IResumeSection<IProject>;
+	experience?: IResumeSection<IExperience>;
 }

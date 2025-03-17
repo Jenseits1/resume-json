@@ -1,24 +1,20 @@
 import { PDFViewer } from "@react-pdf/renderer";
-import { FunctionComponent } from "react";
-
-import { useResume } from "../../contexts/resume.context";
+import { FunctionComponent, memo } from "react";
 import { ResumeDocument } from "./resume-document";
+import { IResume } from "@/app/types/resume.types";
 
-interface ResumePreviewProps {}
+interface ResumePreviewProps {
+	resume: IResume;
+}
 
-export const ResumePreview: FunctionComponent<ResumePreviewProps> = () => {
-	const { resume } = useResume();
-
+const ResumePreviewComponent: FunctionComponent<ResumePreviewProps> = ({
+	resume,
+}) => {
 	return (
-		<PDFViewer
-			style={{
-				height: "80vh",
-				border: "none",
-				width: "800px",
-			}}
-			showToolbar={false}
-		>
+		<PDFViewer className="h-full w-full" showToolbar={false}>
 			<ResumeDocument {...resume} />
 		</PDFViewer>
 	);
 };
+
+export const ResumePreview = memo(ResumePreviewComponent);

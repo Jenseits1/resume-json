@@ -5,7 +5,7 @@ import { SecondarySubtitle } from "./components/secondary-subtitle";
 import { DateLocation } from "./components/date-location";
 import { BulletPoint } from "./components/bullet-point";
 import { View, StyleSheet, Text } from "@react-pdf/renderer";
-import { IExperience } from "@/app/types/resume.types";
+import { IExperience, IResumeSection } from "@/app/types/resume.types";
 
 const styles = StyleSheet.create({
 	experienceContainer: {},
@@ -17,16 +17,27 @@ const styles = StyleSheet.create({
 });
 
 interface DefaultExperienceProps {
-	experience: IExperience[];
+	experience: IResumeSection<IExperience>;
 }
 
 export const DefaultExperience: FunctionComponent<DefaultExperienceProps> = ({
 	experience,
 }) => {
 	return (
-		<Section sectionTitle="experiência">
-			{experience.map(
-				({ role, company, date, location, bulletPoints }, index) => (
+		<Section sectionTitle={experience.title}>
+			{experience.items.map(
+				(
+					{
+						role,
+						company,
+						responsibilities,
+						startDate,
+						endDate,
+						state,
+						country,
+					},
+					index
+				) => (
 					<View key={index} style={styles.experienceContainer}>
 						<View style={styles.header}>
 							<View
@@ -38,10 +49,12 @@ export const DefaultExperience: FunctionComponent<DefaultExperienceProps> = ({
 								<Subtitle>{company}</Subtitle>
 								<SecondarySubtitle>{role}</SecondarySubtitle>
 							</View>
-							<DateLocation {...{ date, location }} />
+							<DateLocation
+								{...{ startDate, endDate, state, country }}
+							/>
 						</View>
 
-						<BulletPoint bulletPoints={bulletPoints} />
+						<BulletPoint bulletPoints={responsibilities} />
 					</View>
 				)
 			)}

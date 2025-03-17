@@ -1,15 +1,21 @@
 import { FunctionComponent } from "react";
-import { Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+
+// Prevents hyphenation in @react-pdf/renderer
+Font.registerHyphenationCallback((word) => [word]);
 
 const styles = StyleSheet.create({
 	bulletPointText: {
-		listStyleType: "disc", // Ensures it is a bullet point
 		display: "flex",
 		flexDirection: "row",
 	},
 	bulletPoints: {
 		paddingLeft: 12,
 		paddingRight: 16,
+	},
+	text: {
+		wordBreak: "break-word", // Moves words to a new line if needed
+		hyphens: "none", // Disables hyphenation
 	},
 });
 
@@ -24,7 +30,7 @@ export const BulletPoint: FunctionComponent<BulletPointProps> = ({
 		{bulletPoints.map((text, index) => (
 			<View key={index} style={styles.bulletPointText}>
 				<Text>• </Text>
-				<Text>{text}</Text>
+				<Text style={styles.text}>{text}</Text>
 			</View>
 		))}
 	</View>

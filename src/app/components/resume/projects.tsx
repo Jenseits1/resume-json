@@ -1,9 +1,9 @@
 import { DefaultProjects } from "@/app/templates/default/default-projects";
-import { IProject } from "@/app/types/resume.types";
+import { IProject, IResumeSection } from "@/app/types/resume.types";
 import { FunctionComponent } from "react";
 
 interface ProjectsProps {
-	projects: IProject[];
+	projects: IResumeSection<IProject>;
 }
 
 export const Projects: FunctionComponent<ProjectsProps> = ({ projects }) => {

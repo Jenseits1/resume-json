@@ -4,7 +4,7 @@ import { Section } from "./components/section";
 import { DateLocation } from "./components/date-location";
 import { Subtitle } from "./components/subtitle";
 import { SecondarySubtitle } from "./components/secondary-subtitle";
-import { IEducation } from "@/app/types/resume.types";
+import { IEducation, IResumeSection } from "@/app/types/resume.types";
 
 // Styles for DefaultEducation
 const styles = StyleSheet.create({
@@ -20,24 +20,31 @@ const styles = StyleSheet.create({
 });
 
 interface DefaultEducationProps {
-	education: IEducation[];
+	education: IResumeSection<IEducation>;
 }
 
 export const DefaultEducation: FunctionComponent<DefaultEducationProps> = ({
 	education,
 }) => {
 	return (
-		<Section sectionTitle="educação">
-			{education.map(({ institution, degree, date, location }, index) => (
-				<View style={styles.educationItem} key={index}>
-					<View style={styles.educationH}>
-						<Subtitle>{institution}</Subtitle>
-						<SecondarySubtitle>{degree}</SecondarySubtitle>
-					</View>
+		<Section sectionTitle={education.title}>
+			{education.items.map(
+				(
+					{ institution, degree, startDate, endDate, state, country },
+					index
+				) => (
+					<View style={styles.educationItem} key={index}>
+						<View style={styles.educationH}>
+							<Subtitle>{institution}</Subtitle>
+							<SecondarySubtitle>{degree}</SecondarySubtitle>
+						</View>
 
-					<DateLocation {...{ date, location }} />
-				</View>
-			))}
+						<DateLocation
+							{...{ startDate, endDate, state, country }}
+						/>
+					</View>
+				)
+			)}
 		</Section>
 	);
 };

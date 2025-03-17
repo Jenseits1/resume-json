@@ -7,5 +7,5 @@ interface HeaderProps {
 }
 
 export const Header: FunctionComponent<HeaderProps> = ({ header }) => {
-	return header && <DefaultHeader header={header} />;
+	return <DefaultHeader header={header} />;
 };

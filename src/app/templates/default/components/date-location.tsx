@@ -13,19 +13,18 @@ const styles = StyleSheet.create({
 	},
 });
 
-interface DateLocationProps {
-	date: IDate;
-	location: ILocation;
-}
+interface DateLocationProps extends IDate, ILocation {}
 
 export const DateLocation: FunctionComponent<DateLocationProps> = ({
-	date,
-	location,
+	startDate,
+	endDate,
+	state,
+	country,
 }) => {
 	return (
 		<View style={styles.container}>
-			<Subtitle>{`${location.state}, ${location.country}`}</Subtitle>
-			<SecondarySubtitle>{`${date.start} - ${date.end}`}</SecondarySubtitle>
+			<Subtitle>{`${state}, ${country}`}</Subtitle>
+			<SecondarySubtitle>{`${startDate} - ${endDate}`}</SecondarySubtitle>
 		</View>
 	);
 };
