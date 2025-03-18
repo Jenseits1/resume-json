@@ -6,17 +6,19 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import { IResume } from "../types/resume.types";
+import { IResume, IResumeContent } from "../types/resume.types";
 import { englishResume } from "@/resume-object";
+import { v4 as uuidv4 } from "uuid";
 
 interface ResumeProviderProps {
 	children: React.ReactNode;
 }
 
 interface ResumeContextType {
-	resume: IResume | {};
-	resumes: string[];
-	getResume: (resume: string) => string;
+	resumes: IResume[];
+	createResume: () => void;
+	deleteResume: (resumeId: string) => void;
+	updateResume: (resumeId: string, newResumeContent: IResumeContent) => void;
 }
 
 export const ResumeContext = createContext<ResumeContextType | null>(null);
@@ -24,33 +26,67 @@ export const ResumeContext = createContext<ResumeContextType | null>(null);
 export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 	children,
 }) => {
-	const [resumes, setResumes] = useState<string[]>([]);
+	const [resumes, setResumes] = useState<IResume[]>([]);
 
 	useEffect(() => {
-		const storedResumes = localStorage.getItem("resumes");
+		const storedResumes = getResumes();
 
-		if (storedResumes) {
-			setResumes(JSON.parse(storedResumes));
-		} else {
-			localStorage.setItem("resumes", JSON.stringify(["default"]));
-			localStorage.setItem(
-				"default",
-				JSON.stringify(englishResume, null, 4)
-			);
-			setResumes(["default"]);
+		if (!storedResumes) {
+			createResume();
 		}
+		console.log(storedResumes);
+		setResumes(getResumes());
 	}, []);
 
-	const getResume = (resume: string) => {
-		return localStorage.getItem(resume) || "";
+	const getResumes = () => {
+		return JSON.parse(localStorage.getItem("resumes")!);
+	};
+
+	const createResume = () => {
+		const newResume = { ...englishResume };
+		newResume.id = uuidv4();
+
+		const newResumes = [...resumes, newResume];
+
+		localStorage.setItem("resumes", JSON.stringify(newResumes));
+
+		setResumes(newResumes);
+	};
+
+	const deleteResume = (resumeId: string) => {
+		const newResumes: IResume[] = resumes.filter(
+			({ id }) => id !== resumeId
+		);
+
+		localStorage.setItem("resumes", JSON.stringify(newResumes));
+
+		setResumes(newResumes);
+	};
+
+	const updateResume = (
+		resumeId: string,
+		newResumeContent: IResumeContent
+	) => {
+		const newResumes: IResume[] = resumes.map((resume) => {
+			if (resume.id === resumeId) {
+				resume.resume = newResumeContent;
+			}
+
+			return resume;
+		});
+
+		localStorage.setItem("resumes", JSON.stringify(newResumes));
+
+		setResumes(newResumes);
 	};
 
 	return (
 		<ResumeContext.Provider
 			value={{
-				resume: {},
 				resumes,
-				getResume,
+				createResume,
+				deleteResume,
+				updateResume,
 			}}
 		>
 			{children}

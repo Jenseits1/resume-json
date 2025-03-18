@@ -1,5 +1,11 @@
 // src/types/resume.types.ts
 
+// meta data interface
+interface IMetaData {
+	resumeName: string;
+	sectionDisplayOrder: string[];
+}
+
 // Header interface
 export interface IHeader {
 	fullName: string;
@@ -51,11 +57,17 @@ export interface IResumeSection<T> {
 	items: T[];
 }
 
-// Resume interface (for the entire resume object)
-export interface IResume {
+export interface IResumeContent {
+	metadata?: IMetaData;
 	header?: IHeader;
 	education?: IResumeSection<IEducation>;
 	skills?: IResumeSection<ISkills>;
 	projects?: IResumeSection<IProject>;
 	experience?: IResumeSection<IExperience>;
+}
+
+// Resume interface (for the entire resume object)
+export interface IResume {
+	id: string;
+	resume: IResumeContent;
 }

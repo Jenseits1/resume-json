@@ -1,35 +1,66 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useMemo, useState } from "react";
 import { useResume } from "../contexts/resume.context";
 import { JsonEditor } from "./json/json-editor";
-import { IResume } from "../types/resume.types";
+import { IResume, IResumeContent } from "../types/resume.types";
 import { ResumePreview } from "./resume/resume-preview";
 
+import { Box, Button } from "@chakra-ui/react";
+import { PdfDownloadButton } from "./resume/pdf-download-button";
+import { LuDelete, LuSave } from "react-icons/lu";
+
 interface ResumeTabProps {
-	resumeName: string;
+	id: string;
+	resume: IResumeContent;
 }
 
 export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
-	resumeName,
+	id,
+	resume,
 }) => {
-	const { getResume } = useResume();
+	const { updateResume, deleteResume } = useResume();
 	const [json, setJson] = useState<string | undefined>("");
-	const [resume, setResume] = useState<IResume>({});
+	const [errors, setErrors] = useState<any[]>();
 
 	useEffect(() => {
-		const resumeJson = getResume(resumeName);
-
-		setJson(resumeJson);
-		setResume(JSON.parse(resumeJson));
+		setJson(JSON.stringify(resume, null, 4));
 	}, []);
 
-	return (
-		<div className="flex w-full h-full space-x-6 pb-24">
-			<JsonEditor
-				json={json}
-				onChange={(updatedJson) => setJson(updatedJson)}
-			/>
+	const saveResume = () => {
+		if (!errors || errors?.length == 0) {
+			return updateResume(id, JSON.parse(json!));
+		}
+		console.log(errors);
+		console.log("can't save it");
+	};
 
-			<ResumePreview resume={resume} />
-		</div>
+	return (
+		<Box display="flex" height={800} flexDirection="column" spaceY="4">
+			<Box display="flex" spaceX="2" width="3xl">
+				<Button variant="subtle" flex="1" onClick={saveResume}>
+					<LuSave />
+					Save
+				</Button>
+
+				<PdfDownloadButton resume={resume} />
+
+				<Button
+					variant="subtle"
+					flex="1"
+					onClick={() => deleteResume(id)}
+				>
+					<LuDelete />
+					Delete
+				</Button>
+			</Box>
+			<Box display="flex" flex="1" spaceX="4">
+				<JsonEditor
+					json={json}
+					onValidate={(markers) => setErrors(markers)}
+					onChange={(updatedJson) => setJson(updatedJson)}
+				/>
+
+				<ResumePreview resume={resume} />
+			</Box>
+		</Box>
 	);
 };

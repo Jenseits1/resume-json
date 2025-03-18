@@ -5,11 +5,13 @@ import { jsonSchema } from "../../schemas/json-schema";
 interface JsonEditorProps {
 	json: string | undefined;
 	onChange: (updatedJson: string | undefined) => void;
+	onValidate: (markers: any[]) => void;
 }
 
 export const JsonEditor: FunctionComponent<JsonEditorProps> = ({
 	json,
 	onChange,
+	onValidate,
 }) => {
 	const handleEditorMount: OnMount = (editor, monacoInstance) => {
 		monacoInstance.languages.json.jsonDefaults.setDiagnosticsOptions({
@@ -31,15 +33,19 @@ export const JsonEditor: FunctionComponent<JsonEditorProps> = ({
 			wordWrap: "on", // Enable word wrapping
 			wrappingIndent: "same", // Optional: adjusts the wrapping indentation
 		});
+
+		console.log(json);
 	};
 
 	return (
 		<Editor
-			className="h-full w-full"
+			height="100%"
+			width="100%"
 			theme="vs-dark"
 			defaultLanguage="json"
 			onChange={onChange}
 			value={json}
+			onValidate={onValidate}
 			onMount={handleEditorMount}
 		/>
 	);

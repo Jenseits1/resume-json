@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from "react";
-import { Document, Page, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 
-import { IResume } from "../../types/resume.types";
+import { IResume, IResumeContent } from "../../types/resume.types";
 import { Header } from "./header";
 import { Education } from "./education";
 import { Skills } from "./skills";
 import { Projects } from "./projects";
 import { Experience } from "./experience";
 
-// Define the styles for the PDF
 const styles = StyleSheet.create({
 	page: {
 		fontSize: 14,
@@ -20,27 +19,41 @@ const styles = StyleSheet.create({
 	},
 });
 
-interface ResumeDocumentProps extends IResume {}
+interface ResumeDocumentProps extends IResumeContent {}
 
 export const ResumeDocument: FunctionComponent<ResumeDocumentProps> = ({
+	metadata,
 	header,
 	education,
 	skills,
 	projects,
 	experience,
 }) => {
+	const selectSection = (section: string) => {
+		switch (section) {
+			case "education":
+				return education && <Education education={education} />;
+
+			case "skills":
+				return skills && <Skills skills={skills} />;
+
+			case "projects":
+				return projects && <Projects projects={projects} />;
+			case "experience":
+				return experience && <Experience experience={experience} />;
+		}
+
+		return <></>;
+	};
+
 	return (
 		<Document>
 			<Page style={styles.page}>
 				{header && <Header header={header} />}
 
-				{education && <Education education={education} />}
-
-				{skills && <Skills skills={skills} />}
-
-				{projects && <Projects projects={projects} />}
-
-				{experience && <Experience experience={experience} />}
+				{metadata?.sectionDisplayOrder.map((section, index) => (
+					<View key={index}>{selectSection(section)}</View>
+				))}
 			</Page>
 		</Document>
 	);

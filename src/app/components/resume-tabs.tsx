@@ -1,34 +1,35 @@
 import { FunctionComponent } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { useResume } from "@/app/contexts/resume.context";
 import { ResumeTab } from "./resume-tab";
+import { CloseButton, Tabs } from "@chakra-ui/react";
+import { LuFileJson, LuFolder, LuSquareCheck, LuUser } from "react-icons/lu";
 
 interface ResumeTabsProps {}
 
 export const ResumeTabs: FunctionComponent<ResumeTabsProps> = () => {
-	const { getResume, resumes } = useResume();
+	const { resumes } = useResume();
 
 	return (
 		<>
-			<Tabs className="w-full h-full" defaultValue={resumes[0]}>
-				<TabsList>
-					{resumes.map((resume, index) => (
-						<TabsTrigger key={index} value={resume}>
-							{resume}
-						</TabsTrigger>
-					))}
-				</TabsList>
+			{resumes && (
+				<Tabs.Root>
+					<Tabs.List>
+						{resumes.map(({ id, resume }) => (
+							<Tabs.Trigger key={id} value={id}>
+								<LuFileJson />
+								{`${resume.metadata?.resumeName}.json`}
+							</Tabs.Trigger>
+						))}
+					</Tabs.List>
 
-				{resumes.map((resume, index) => (
-					<TabsContent
-						className="w-full h-full"
-						key={index}
-						value={resume}
-					>
-						<ResumeTab resumeName={resume} />
-					</TabsContent>
-				))}
-			</Tabs>
+					{resumes.map(({ id, resume }) => (
+						<Tabs.Content key={id} value={id}>
+							<ResumeTab {...{ id, resume }} />
+						</Tabs.Content>
+					))}
+				</Tabs.Root>
+			)}
 		</>
 	);
 };

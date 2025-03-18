@@ -1,37 +1,47 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 import dynamic from "next/dynamic";
 import { ResumeDocument } from "./resume-document";
-import { Button } from "@/components/ui/button";
-import { useResume } from "@/app/contexts/resume.context";
+
+import { Button } from "@chakra-ui/react";
+import { IResumeContent } from "@/app/types/resume.types";
+import { LuDownload } from "react-icons/lu";
 
 const PDFDownloadLink = dynamic(
 	() => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
 	{ ssr: false }
 );
 
-interface PdfDownloadButtonProps {}
+interface PdfDownloadButtonProps {
+	resume: IResumeContent;
+}
 
-export const PdfDownloadButton: FunctionComponent<
+export const PdfDownloadButtonComponent: FunctionComponent<
 	PdfDownloadButtonProps
-> = () => {
-	const { resume } = useResume();
-
+> = ({ resume }) => {
 	return (
 		<>
 			{PDFDownloadLink && (
 				<PDFDownloadLink
+					className="flex-1"
 					document={<ResumeDocument {...resume} />}
-					fileName="resume.pdf"
+					fileName={`${resume.metadata?.resumeName}.pdf`}
 				>
-					{({ loading }) =>
-						loading ? (
-							<Button>Loading PDF...</Button>
-						) : (
-							<Button>Baixar PDF</Button>
-						)
-					}
+					{({ loading }) => (
+						<Button
+							flex="1"
+							w="100%"
+							variant="subtle"
+							loading={loading}
+							loadingText="Loading PDF..."
+						>
+							<LuDownload />
+							Download PDF
+						</Button>
+					)}
 				</PDFDownloadLink>
 			)}
 		</>
 	);
 };
+
+export const PdfDownloadButton = memo(PdfDownloadButtonComponent);
