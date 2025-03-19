@@ -19,28 +19,19 @@ export const PdfDownloadButtonComponent: FunctionComponent<
 	PdfDownloadButtonProps
 > = ({ resume }) => {
 	return (
-		<>
-			{PDFDownloadLink && (
-				<PDFDownloadLink
-					className="flex-1"
-					document={<ResumeDocument {...resume} />}
-					fileName={`${resume.metadata?.resumeName}.pdf`}
-				>
-					{({ loading }) => (
-						<Button
-							flex="1"
-							w="100%"
-							variant="subtle"
-							loading={loading}
-							loadingText="Loading PDF..."
-						>
-							<LuDownload />
-							Download PDF
-						</Button>
-					)}
-				</PDFDownloadLink>
+		<PDFDownloadLink
+			className="flex-1"
+			key={JSON.stringify(resume)}
+			document={<ResumeDocument {...resume} />}
+			fileName={`${resume.metadata?.resumeName}.pdf`}
+		>
+			{({ loading }) => (
+				<Button flex="1" w="100%" variant="subtle" loading={loading}>
+					<LuDownload />
+					Download PDF
+				</Button>
 			)}
-		</>
+		</PDFDownloadLink>
 	);
 };
 

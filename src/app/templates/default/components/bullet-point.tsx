@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
 	},
 	bulletPoints: {
 		paddingLeft: 12,
-		paddingRight: 16,
+		paddingRight: 8,
 	},
 	text: {
 		wordBreak: "break-word", // Moves words to a new line if needed
-		hyphens: "none", // Disables hyphenation
+		hyphens: "none", // Disables hyphenation */
 	},
 });
 

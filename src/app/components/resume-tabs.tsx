@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 import { useResume } from "@/app/contexts/resume.context";
 import { ResumeTab } from "./resume-tab";
-import { CloseButton, Tabs } from "@chakra-ui/react";
+import { Box, CloseButton, Show, Tabs } from "@chakra-ui/react";
 import { LuFileJson, LuFolder, LuSquareCheck, LuUser } from "react-icons/lu";
 
 interface ResumeTabsProps {}
@@ -17,7 +17,10 @@ export const ResumeTabs: FunctionComponent<ResumeTabsProps> = () => {
 					<Tabs.List>
 						{resumes.map(({ id, resume }) => (
 							<Tabs.Trigger key={id} value={id}>
-								<LuFileJson />
+								<Box hideBelow="md">
+									<LuFileJson />
+								</Box>
+
 								{`${resume.metadata?.resumeName}.json`}
 							</Tabs.Trigger>
 						))}

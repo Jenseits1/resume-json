@@ -3,7 +3,8 @@
 // meta data interface
 interface IMetaData {
 	resumeName: string;
-	sectionDisplayOrder: string[];
+	sectionsOrder: string[];
+	disabledSections: string[];
 }
 
 // Header interface

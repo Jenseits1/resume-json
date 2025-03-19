@@ -2,12 +2,26 @@ const metadataSchema = {
 	type: "object",
 	properties: {
 		resumeName: { type: "string" },
-		sectionDisplayOrder: {
+		sectionsOrder: {
 			type: "array",
-			items: { type: "string" },
+			items: {
+				type: "string",
+				enum: ["education", "skills", "projects", "experience"],
+			},
+			uniqueItems: true,
+			minItems: 4,
+		},
+		disabledSections: {
+			type: "array",
+			items: {
+				type: "string",
+				enum: ["education", "skills", "projects", "experience"],
+			},
+			uniqueItems: true,
 		},
 	},
-	required: ["resumeName", "sectionDisplayOrder"],
+	required: ["resumeName", "sectionsOrder", "disabledSections"],
+	additionalProperties: false,
 };
 
 const headerSchema = {
@@ -23,9 +37,11 @@ const headerSchema = {
 				linkedin: { type: "string" },
 			},
 			required: ["phone", "email", "github", "linkedin"],
+			additionalProperties: false,
 		},
 	},
 	required: ["fullName", "contacts"],
+	additionalProperties: false,
 };
 
 const educationSchema = {
@@ -52,10 +68,12 @@ const educationSchema = {
 					"state",
 					"country",
 				],
+				additionalProperties: false,
 			},
 		},
 	},
 	required: ["title", "items"],
+	additionalProperties: false,
 };
 
 const skillsSchema = {
@@ -74,10 +92,12 @@ const skillsSchema = {
 					},
 				},
 				required: ["category", "skills"],
+				additionalProperties: false,
 			},
 		},
 	},
 	required: ["title", "items"],
+	additionalProperties: false,
 };
 
 const projectsSchema = {
@@ -96,10 +116,12 @@ const projectsSchema = {
 					},
 				},
 				required: ["title", "description"],
+				additionalProperties: false,
 			},
 		},
 	},
 	required: ["title", "items"],
+	additionalProperties: false,
 };
 
 const experienceSchema = {
@@ -131,10 +153,12 @@ const experienceSchema = {
 					"state",
 					"country",
 				],
+				additionalProperties: false,
 			},
 		},
 	},
 	required: ["title", "items"],
+	additionalProperties: false,
 };
 
 export const jsonSchema = {
@@ -148,4 +172,5 @@ export const jsonSchema = {
 		experience: experienceSchema,
 	},
 	required: ["metadata", "header"],
+	additionalProperties: false,
 };

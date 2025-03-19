@@ -12,10 +12,8 @@ const styles = StyleSheet.create({
 	page: {
 		fontSize: 14,
 		flexDirection: "column",
-		padding: 36,
+		padding: 24,
 		fontFamily: "Times-Roman",
-		wrap: false,
-		wordBreak: "break-word",
 	},
 });
 
@@ -33,17 +31,13 @@ export const ResumeDocument: FunctionComponent<ResumeDocumentProps> = ({
 		switch (section) {
 			case "education":
 				return education && <Education education={education} />;
-
 			case "skills":
 				return skills && <Skills skills={skills} />;
-
 			case "projects":
 				return projects && <Projects projects={projects} />;
 			case "experience":
 				return experience && <Experience experience={experience} />;
 		}
-
-		return <></>;
 	};
 
 	return (
@@ -51,9 +45,12 @@ export const ResumeDocument: FunctionComponent<ResumeDocumentProps> = ({
 			<Page style={styles.page}>
 				{header && <Header header={header} />}
 
-				{metadata?.sectionDisplayOrder.map((section, index) => (
-					<View key={index}>{selectSection(section)}</View>
-				))}
+				{metadata?.sectionsOrder.map((section: string) => {
+					if (!metadata?.disabledSections.includes(section))
+						return (
+							<View key={section}>{selectSection(section)}</View>
+						);
+				})}
 			</Page>
 		</Document>
 	);

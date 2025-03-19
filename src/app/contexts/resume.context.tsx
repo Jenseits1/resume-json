@@ -7,8 +7,8 @@ import {
 	useState,
 } from "react";
 import { IResume, IResumeContent } from "../types/resume.types";
-import { englishResume } from "@/resume-object";
 import { v4 as uuidv4 } from "uuid";
+import { defaultResume } from "@/resume-object";
 
 interface ResumeProviderProps {
 	children: React.ReactNode;
@@ -29,26 +29,24 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 	const [resumes, setResumes] = useState<IResume[]>([]);
 
 	useEffect(() => {
-		const storedResumes = getResumes();
+		const storedResumes = JSON.parse(localStorage.getItem("resumes")!);
 
-		if (!storedResumes) {
-			createResume();
-		}
 		console.log(storedResumes);
-		setResumes(getResumes());
+
+		if (storedResumes) {
+			setResumes(storedResumes);
+		}
 	}, []);
 
-	const getResumes = () => {
-		return JSON.parse(localStorage.getItem("resumes")!);
-	};
+	useEffect(() => {
+		localStorage.setItem("resumes", JSON.stringify(resumes));
+	}, [resumes]);
 
 	const createResume = () => {
-		const newResume = { ...englishResume };
-		newResume.id = uuidv4();
-
-		const newResumes = [...resumes, newResume];
-
-		localStorage.setItem("resumes", JSON.stringify(newResumes));
+		const newResumes = [
+			...resumes,
+			{ id: uuidv4(), resume: defaultResume },
+		];
 
 		setResumes(newResumes);
 	};
@@ -58,8 +56,6 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 			({ id }) => id !== resumeId
 		);
 
-		localStorage.setItem("resumes", JSON.stringify(newResumes));
-
 		setResumes(newResumes);
 	};
 
@@ -67,15 +63,13 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 		resumeId: string,
 		newResumeContent: IResumeContent
 	) => {
-		const newResumes: IResume[] = resumes.map((resume) => {
+		let newResumes: IResume[] = resumes.map((resume) => {
 			if (resume.id === resumeId) {
 				resume.resume = newResumeContent;
 			}
 
 			return resume;
 		});
-
-		localStorage.setItem("resumes", JSON.stringify(newResumes));
 
 		setResumes(newResumes);
 	};

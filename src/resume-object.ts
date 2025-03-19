@@ -1,217 +1,131 @@
-export const englishResume = {
-	id: "abc",
-	resume: {
-		metadata: {
-			resumeName: "english version",
-			sectionDisplayOrder: [
-				"education",
-				"skills",
-				"projects",
-				"experience",
-			],
-		},
-		header: {
-			fullName: "Washington Bueno",
-			contacts: {
-				phone: "+55 11 96311-4982",
-				email: "washingtonfbueno@hotmail.com",
-				github: "https://github.com/washingtonfbueno",
-				linkedin: "https://linkedin.com/in/washingtonfbueno",
-			},
-		},
-		education: {
-			title: "Education",
-			items: [
-				{
-					institution: "Universidade Presbiteriana Mackenzie",
-					degree: "Computer Information Systems",
-					startDate: "2023",
-					endDate: "Dec 2025",
-					state: "São Paulo",
-					country: "Brazil",
-				},
-				{
-					institution: "Universidade Nove de Julho",
-					degree: "Civil Engineering",
-					startDate: "2016",
-					endDate: "Dec 2020",
-					state: "São Paulo",
-					country: "Brazil",
-				},
-			],
-		},
-		skills: {
-			title: "Skills",
-			items: [
-				{
-					category: "Technical Skills",
-					skills: [
-						"Python",
-						"JavaScript",
-						"C",
-						"Java",
-						"HTML",
-						"CSS",
-						"Tailwind CSS",
-						"React.js",
-						"Express.js",
-						"MySQL",
-						"Git",
-						"Data Structures",
-						"Algorithms",
-					],
-				},
-				{
-					category: "Spoken Languages",
-					skills: ["Portuguese", "English"],
-				},
-			],
-		},
-		projects: {
-			title: "Projects",
-			items: [
-				{
-					title: "Expression Parser",
-					description: [
-						"Developed a mathematical expression parser using Python with recursive descent parsing for correct operator precedence",
-						"Handled division by zero and syntax errors to ensure robustness and reliability",
-						"Improved knowledge of compiler design and how programming languages process input",
-					],
-				},
-				{
-					title: "Portfolio",
-					description: [
-						"Built a personal portfolio using React.js, TypeScript, and Tailwind CSS to showcase projects and skills",
-						"Designed the site to be easy to navigate across different screen sizes",
-						"Served as a practice project to improve front-end development skills with modern technologies",
-					],
-				},
-				{
-					title: "Resume Generator",
-					description: [
-						"Developed a resume generator using Next.js and TypeScript to streamline resume creation",
-						"Implemented dynamic templates and form validation to simplify formatting",
-						"Facilitates the generation of structured resumes by allowing users to input their information and receive a well-formatted document",
-					],
-				},
-			],
-		},
-		experience: {
-			title: "Experience",
-			items: [
-				{
-					role: "Coding Support Assistant",
-					responsibilities: [
-						"Helped community members debug and improve code in Python and JavaScript",
-						"Assisted users with problem-solving and understanding programming concepts",
-						"Providing support contributed to reinforcing knowledge and maintaining familiarity with learned topics",
-					],
-					company: "Discord Communities",
-					startDate: "2022",
-					endDate: "Present",
-					state: "São Paulo",
-					country: "Brazil",
-				},
-			],
-		},
+export const defaultResume = {
+	metadata: {
+		resumeName: "Senior SWE Example",
+		sectionsOrder: ["skills", "experience", "education", "projects"],
+		disabledSections: [],
 	},
-};
-
-export const portugueseResume = {
 	header: {
-		fullName: "Washington Bueno",
+		fullName: "John Doe",
 		contacts: {
-			phone: "+55 11 96311-4982",
-			email: "washingtonfbueno@hotmail.com",
-			github: "https://github.com/washingtonfbueno",
-			linkedin: "https://linkedin.com/in/washingtonfbueno",
+			phone: "+1 650-555-1234",
+			email: "johndoe@example.com",
+			github: "https://github.com/johndoe",
+			linkedin: "https://linkedin.com/in/johndoe",
 		},
 	},
 	education: {
-		title: "Educação",
-		sectionItems: [
+		title: "Education",
+		items: [
 			{
-				institution: "Universidade Presbiteriana Mackenzie",
-				degree: "Análise e Desenvolvimento de Sistemas",
-				date: { start: "2023", end: "Dez 2025" },
-				location: { state: "São Paulo", country: "Brasil" },
+				institution: "Stanford University",
+				degree: "Master of Science in Computer Science",
+				startDate: "2019",
+				endDate: "2021",
+				state: "California",
+				country: "USA",
 			},
 			{
-				institution: "Universidade Nove de Julho",
-				degree: "Engenharia Civil",
-				date: { start: "2016", end: "Dez 2020" },
-				location: { state: "São Paulo", country: "Brasil" },
+				institution: "Massachusetts Institute of Technology (MIT)",
+				degree: "Bachelor of Science in Computer Science",
+				startDate: "2015",
+				endDate: "2019",
+				state: "Massachusetts",
+				country: "USA",
 			},
 		],
 	},
 	skills: {
-		title: "Habilidades",
-		sectionItems: [
+		title: "Skills",
+		items: [
 			{
-				type: "Habilidades Técnicas",
+				category: "Programming Languages",
 				skills: [
 					"Python",
 					"JavaScript",
-					"C",
+					"TypeScript",
 					"Java",
-					"HTML",
-					"CSS",
-					"Tailwind CSS",
-					"React.js",
-					"Express.js",
-					"MySQL",
-					"Git",
-					"Estruturas de Dados",
-					"Algoritmos",
+					"C++",
+					"Go",
+					"Rust",
 				],
 			},
-			{ type: "Idiomas", skills: ["Português", "Inglês"] },
+			{
+				category: "Web Development",
+				skills: ["React.js", "Node.js", "GraphQL"],
+			},
+			{
+				category: "Databases",
+				skills: ["PostgreSQL", "MongoDB", "Redis"],
+			},
+			{
+				category: "Cloud & DevOps",
+				skills: [
+					"AWS",
+					"Google Cloud Platform (GCP)",
+					"Kubernetes",
+					"Docker",
+					"Terraform",
+				],
+			},
+			{
+				category: "Other",
+				skills: [
+					"CI/CD",
+					"Distributed Systems",
+					"Microservices Architecture",
+					"System Design",
+				],
+			},
 		],
 	},
 	projects: {
-		title: "Projetos",
-		sectionItems: [
+		title: "Projects",
+		items: [
 			{
-				title: "Expression Parser",
-				technologies: ["Python"],
-				bulletPoints: [
-					"Desenvolveu um interpretador de expressões matemáticas em Python utilizando parsing recursivo para respeitar a precedência dos operadores",
-					"Implementou tratamento de erros para divisão por zero e erros de sintaxe, garantindo robustez e confiabilidade",
-					"Aprimorou conhecimento sobre design de compiladores e como linguagens de programação processam entradas",
+				title: "High-Performance Load Balancer",
+				description: [
+					"Developed a distributed load balancer using Golang that handled millions of requests per second",
+					"Implemented consistent hashing and dynamic rebalancing for optimal request distribution",
+					"Used Kubernetes and Istio for deployment and observability",
 				],
 			},
 			{
-				title: "Portfolio",
-				technologies: ["Tailwind CSS", "TypeScript", "React.js"],
-				bulletPoints: [
-					"Construiu um portfólio pessoal utilizando React.js, TypeScript e Tailwind CSS para exibir projetos e habilidades",
-					"Desenvolveu um design responsivo para diferentes tamanhos de tela",
-					"Utilizou o projeto como prática para aprimorar habilidades de desenvolvimento front-end com tecnologias modernas",
-				],
-			},
-			{
-				title: "Resume Generator",
-				technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-				bulletPoints: [
-					"Desenvolveu um gerador de currículos usando Next.js e TypeScript para facilitar a criação de currículos",
-					"Implementou modelos dinâmicos e validação de formulários para simplificar a formatação",
-					"Facilitou a geração de currículos estruturados permitindo que usuários inserissem suas informações e recebessem um documento bem formatado",
+				title: "Real-Time AI Chatbot",
+				description: [
+					"Built an AI-powered chatbot using Python and TensorFlow for real-time conversations",
+					"Integrated OpenAI’s GPT model and optimized inference speed for low-latency responses",
+					"Deployed on AWS Lambda with WebSocket support for scalable interactions",
 				],
 			},
 		],
 	},
 	experience: {
-		title: "Experiência",
-		sectionItems: [
+		title: "Experience",
+		items: [
 			{
-				role: "Suporte em Programação",
-				company: "Comunidades do Discord",
-				date: { start: "2022", end: "Presente" },
-				location: { state: "São Paulo", country: "Brasil" },
-				bulletPoints: [
-					"Ajudou membros da comunidade a verificar e melhorar códigos em Python e JavaScript",
-					"Auxiliou usuários na resolução de problemas e no entendimento de conceitos de programação",
-					"O suporte prestado contribuiu para reforçar conhecimento e manter familiaridade com os tópicos aprendidos",
+				role: "Senior Software Engineer",
+				company: "Google",
+				startDate: "2022",
+				endDate: "Present",
+				state: "California",
+				country: "USA",
+				responsibilities: [
+					"Led a team of engineers to build scalable backend services for Google Cloud, focusing on high availability and performance optimization.",
+					"Designed and implemented a high-throughput distributed event processing system, reducing latency by 30%.",
+					"Contributed to open-source projects improving service discovery and load balancing, which were adopted by multiple teams across the organization.",
+				],
+			},
+			{
+				role: "Software Engineer",
+				company: "Meta (Facebook)",
+				startDate: "2019",
+				endDate: "2022",
+				state: "California",
+				country: "USA",
+				responsibilities: [
+					"Developed highly efficient GraphQL APIs used across Facebook, Instagram, and WhatsApp, supporting millions of users daily.",
+					"Optimized caching layers and implemented a distributed caching system, reducing database load by 40%.",
+					"Collaborated with AI research teams to integrate recommendation algorithms, improving user engagement and experience.",
 				],
 			},
 		],
