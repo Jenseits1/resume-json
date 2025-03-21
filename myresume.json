@@ -53,7 +53,7 @@
 		"items": [
 			{
 				"category": "Programming Languages",
-				"skills": ["Python", "JavaScript", "C", "Java"]
+				"skills": ["Python", "JavaScript", "Typescript", "C", "Java"]
 			},
 			{
 				"category": "Web Development",
@@ -81,12 +81,12 @@
 		"title": "Projects",
 		"items": [
 			{
-				"title": "Résumé.json",
+				"title": "Resume.json",
 				"description": [
 					"Built with Next.js, TypeScript, and Chakra UI, featuring a Monaco Editor for real-time JSON editing and resume customization, allowing users to craft their resumes easily",
 					"Enabled dynamic resume templates with live PDF preview for instant download, ensuring users can quickly generate professional resumes in a clean and modern layout",
 					"Utilized JSON format for flexibility, supporting multi-resume management and translation, with the ability to store and modify several resumes in one place for different job applications",
-					"Integrated an API that allows users to send their JSON and receive a response with a downloadable PDF, enabling users to easily add resume download links to their applications"
+					"Integrated real-time validation with AJV, which checks the user's resume JSON against a predefined schema while editing, providing instant feedback and helping users ensure the accuracy of their resume data before submitting"
 				]
 			},
 			{

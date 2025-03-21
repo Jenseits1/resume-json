@@ -1,14 +1,15 @@
 import React, { FunctionComponent } from "react";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet } from "@react-pdf/renderer";
 import { IResumeContent } from "@/app/types/resume.types";
 import { Section } from "@/app/templates/default/section";
 import { Header } from "@/app/templates/default/header";
 
 const styles = StyleSheet.create({
 	page: {
-		fontSize: 13,
+		fontSize: 12,
 		flexDirection: "column",
-		padding: 36,
+		paddingVertical: 24,
+		paddingHorizontal: 24,
 		fontFamily: "Times-Roman",
 	},
 });

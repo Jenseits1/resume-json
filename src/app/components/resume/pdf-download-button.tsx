@@ -1,7 +1,7 @@
 import { FunctionComponent, memo } from "react";
 import { Button } from "@chakra-ui/react";
 import { LuDownload } from "react-icons/lu";
-import { PDFDownloadLink } from "@react-pdf/renderer"; // Direct import
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ResumeDocument } from "./resume-document";
 import { IResumeContent } from "@/app/types/resume.types";
 

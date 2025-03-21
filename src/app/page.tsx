@@ -6,6 +6,7 @@ import { LuMoon, LuPlus, LuSun } from "react-icons/lu";
 import { useResume } from "./contexts/resume.context";
 import { useColorMode } from "@/components/ui/color-mode";
 import { useEffect, useState } from "react";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
 	const { resumes, createResume } = useResume();
@@ -32,7 +33,7 @@ export default function Home() {
 				marginBottom={4}
 				fontWeight="bold"
 			>
-				Résumé.json
+				Resume.json
 			</Text>
 
 			<Box display="flex" justifyContent="space-between">
@@ -51,6 +52,8 @@ export default function Home() {
 			</Box>
 
 			<ResumeTabs />
+
+			<Toaster />
 		</Box>
 	);
 }

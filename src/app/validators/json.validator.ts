@@ -24,7 +24,7 @@ export const validateJson = (json: string) => {
 	} catch (error) {
 		return {
 			valid: false,
-			errors: ["Invalid JSON syntax"],
+			errors: [error as string],
 		};
 	}
 };

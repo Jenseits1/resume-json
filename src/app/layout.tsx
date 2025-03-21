@@ -4,7 +4,7 @@ import { Provider } from "@/components/ui/provider";
 import { ResumeProvider } from "./contexts/resume.context";
 
 export const metadata: Metadata = {
-	title: "Résumé.json",
+	title: "Resume.json",
 	description: "Resume generator app",
 	icons: {
 		icon: "/app-icon.svg",

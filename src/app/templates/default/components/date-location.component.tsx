@@ -1,8 +1,6 @@
 import { FunctionComponent } from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
-import { TitleComponent } from "./title.component";
 import { IDate, ILocation } from "@/app/types/resume.types";
-import { SubtitleComponent } from "./subtitle.component";
 
 // Styles for DateLocationComponent component
 const styles = StyleSheet.create({

@@ -61,7 +61,7 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 		resumeId: string,
 		newResumeContent: IResumeContent
 	) => {
-		let newResumes: IResume[] = resumes.map((resume) => {
+		const newResumes: IResume[] = resumes.map((resume) => {
 			if (resume.id === resumeId) {
 				resume.resume = newResumeContent;
 			}

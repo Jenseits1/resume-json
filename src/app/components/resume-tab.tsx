@@ -6,11 +6,14 @@ import { ResumePreview } from "./resume/resume-preview";
 import { Box, Button, Grid } from "@chakra-ui/react";
 import { PdfDownloadButton } from "./resume/pdf-download-button";
 import { LuDelete, LuSave } from "react-icons/lu";
-import { IResume } from "../types/resume.types";
+import { IResumeContent } from "../types/resume.types";
 import { validateJson } from "../validators/json.validator";
-import { Toaster, toaster } from "@/components/ui/toaster";
+import { toaster } from "@/components/ui/toaster";
 
-interface ResumeTabProps extends IResume {}
+interface ResumeTabProps {
+	id: string;
+	resume: IResumeContent;
+}
 
 export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 	id,
@@ -18,15 +21,12 @@ export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 }) => {
 	const { updateResume, deleteResume } = useResume();
 	const [json, setJson] = useState<string>("");
-	const [buttonDisabled, setButtonDisabled] = useState(false);
 
 	useEffect(() => {
 		setJson(JSON.stringify(resume, null, 4));
 	}, []);
 
-	const handleUpdateResume = async () => {
-		setButtonDisabled(true);
-
+	const handleUpdateResume = () => {
 		const validation = validateJson(json);
 
 		if (validation.valid) {
@@ -34,31 +34,21 @@ export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 		} else {
 			validation.errors.map((error) => {
 				toaster.error({
+					title: "JSON Error",
 					description: error,
-					duration: 5000,
 				});
 			});
 		}
-
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		setButtonDisabled(false);
 	};
 
 	return (
 		<Box display="flex" flexDirection="column" spaceY="4">
-			<Toaster />
-
 			<Grid
 				width={{ base: "sm", md: "xl" }}
 				templateColumns="repeat(3, 1fr)"
 				gap={4}
 			>
-				<Button
-					variant="subtle"
-					disabled={buttonDisabled}
-					loading={buttonDisabled}
-					onClick={handleUpdateResume}
-				>
+				<Button variant="subtle" onClick={handleUpdateResume}>
 					<LuSave />
 					Update
 				</Button>
