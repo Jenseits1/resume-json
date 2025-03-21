@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import { BulletPoint } from "@/app/types/resume.types";
 
 // Prevents hyphenation in @react-pdf/renderer
 Font.registerHyphenationCallback((word) => [word]);
@@ -20,14 +21,14 @@ const styles = StyleSheet.create({
 });
 
 interface BulletPointProps {
-	bulletPoints: string[];
+	bulletPoints?: BulletPoint[];
 }
 
-export const BulletPoint: FunctionComponent<BulletPointProps> = ({
+export const BulletPointComponent: FunctionComponent<BulletPointProps> = ({
 	bulletPoints,
 }) => (
 	<View style={styles.bulletPoints}>
-		{bulletPoints.map((text, index) => (
+		{bulletPoints?.map((text, index) => (
 			<View key={index} style={styles.bulletPointText}>
 				<Text>• </Text>
 				<Text style={styles.text}>{text}</Text>

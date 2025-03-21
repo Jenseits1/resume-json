@@ -1,4 +1,3 @@
-"use client";
 import { PDFViewer } from "@react-pdf/renderer";
 import { FunctionComponent, memo } from "react";
 import { ResumeDocument } from "./resume-document";
@@ -14,11 +13,15 @@ export const ResumePreviewComponent: FunctionComponent<ResumePreviewProps> = ({
 	return (
 		<PDFViewer
 			key={JSON.stringify(resume)}
-			height="100%"
+			height={500}
 			width="100%"
 			showToolbar={false}
+			style={{
+				overflow: "hidden", // Prevent horizontal scroll
+				maxWidth: "100%", // Ensure content does not exceed container width
+			}}
 		>
-			<ResumeDocument {...resume} />
+			<ResumeDocument resume={resume} />
 		</PDFViewer>
 	);
 };

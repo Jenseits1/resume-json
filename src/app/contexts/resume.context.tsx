@@ -6,9 +6,9 @@ import {
 	useEffect,
 	useState,
 } from "react";
-import { IResume, IResumeContent } from "../types/resume.types";
 import { v4 as uuidv4 } from "uuid";
-import { defaultResume } from "@/resume-object";
+import { defaultResume } from "@/default-resume";
+import { IResume, IResumeContent } from "../types/resume.types";
 
 interface ResumeProviderProps {
 	children: React.ReactNode;
@@ -29,12 +29,10 @@ export const ResumeProvider: FunctionComponent<ResumeProviderProps> = ({
 	const [resumes, setResumes] = useState<IResume[]>([]);
 
 	useEffect(() => {
-		const storedResumes = JSON.parse(localStorage.getItem("resumes")!);
-
-		console.log(storedResumes);
+		const storedResumes = localStorage.getItem("resumes")!;
 
 		if (storedResumes) {
-			setResumes(storedResumes);
+			setResumes(JSON.parse(storedResumes));
 		}
 	}, []);
 

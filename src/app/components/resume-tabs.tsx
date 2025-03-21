@@ -1,9 +1,9 @@
+"use client";
 import { FunctionComponent } from "react";
-
 import { useResume } from "@/app/contexts/resume.context";
 import { ResumeTab } from "./resume-tab";
-import { Box, CloseButton, Show, Tabs } from "@chakra-ui/react";
-import { LuFileJson, LuFolder, LuSquareCheck, LuUser } from "react-icons/lu";
+import { Box, Tabs } from "@chakra-ui/react";
+import { LuFileJson } from "react-icons/lu";
 
 interface ResumeTabsProps {}
 

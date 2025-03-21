@@ -1,16 +1,22 @@
 {
 	"metadata": {
-		"resumeName": "english version",
-		"sectionsOrder": ["education", "skills", "projects", "experience"],
-		"disabledSections": []
+		"resumeName": "Washington Bueno - EN",
+		"sections": [
+			"education",
+			"skills",
+			"projects",
+			"experience",
+			"courses",
+			"interests"
+		]
 	},
 	"header": {
-		"fullName": "Washington Bueno",
+		"fullName": "xxxxx",
 		"contacts": {
-			"phone": "+55 11 96311-4982",
-			"email": "washingtonfbueno@hotmail.com",
-			"github": "https://github.com/washingtonfbueno",
-			"linkedin": "https://linkedin.com/in/washingtonfbueno"
+			"phone": "+xx xx xxxxx-xxxx",
+			"email": "xxxx@hotmail.com",
+			"github": "https://github.com/xxxx",
+			"linkedin": "https://linkedin.com/in/xxxx"
 		}
 	},
 	"education": {
@@ -18,19 +24,27 @@
 		"items": [
 			{
 				"institution": "Universidade Presbiteriana Mackenzie",
-				"degree": "Computer Information Systems",
-				"startDate": "2023",
-				"endDate": "Dec 2025",
-				"state": "São Paulo",
-				"country": "Brazil"
+				"degree": "Associate's degree in Computer Information Systems",
+				"date": {
+					"start": "2023",
+					"end": "Dec 2025"
+				},
+				"location": {
+					"state": "São Paulo",
+					"country": "Brazil"
+				}
 			},
 			{
 				"institution": "Universidade Nove de Julho",
-				"degree": "Civil Engineering",
-				"startDate": "2016",
-				"endDate": "Dec 2020",
-				"state": "São Paulo",
-				"country": "Brazil"
+				"degree": "Bachelor's degree in Civil Engineering",
+				"date": {
+					"start": "2016",
+					"end": "Dec 2020"
+				},
+				"location": {
+					"state": "São Paulo",
+					"country": "Brazil"
+				}
 			}
 		]
 	},
@@ -38,22 +52,24 @@
 		"title": "Skills",
 		"items": [
 			{
-				"category": "Technical Skills",
+				"category": "Programming Languages",
+				"skills": ["Python", "JavaScript", "C", "Java"]
+			},
+			{
+				"category": "Web Development",
 				"skills": [
-					"Python",
-					"JavaScript",
-					"C",
-					"Java",
 					"HTML",
 					"CSS",
 					"Tailwind CSS",
 					"React.js",
+					"Next.js",
 					"Express.js",
-					"MySQL",
-					"Git",
-					"Data Structures",
-					"Algorithms"
+					"Chakra UI"
 				]
+			},
+			{
+				"category": "Tools & Others",
+				"skills": ["Git", "MySQL", "Data Structures & Algorithms"]
 			},
 			{
 				"category": "Spoken Languages",
@@ -65,11 +81,28 @@
 		"title": "Projects",
 		"items": [
 			{
+				"title": "Résumé.json",
+				"description": [
+					"Built with Next.js, TypeScript, and Chakra UI, featuring a Monaco Editor for real-time JSON editing and resume customization, allowing users to craft their resumes easily",
+					"Enabled dynamic resume templates with live PDF preview for instant download, ensuring users can quickly generate professional resumes in a clean and modern layout",
+					"Utilized JSON format for flexibility, supporting multi-resume management and translation, with the ability to store and modify several resumes in one place for different job applications",
+					"Integrated an API that allows users to send their JSON and receive a response with a downloadable PDF, enabling users to easily add resume download links to their applications"
+				]
+			},
+			{
+				"title": "Sorting Algorithms Visualizer",
+				"description": [
+					"Developed a visualizer using TypeScript and Next.js to demonstrate popular sorting algorithms like Merge Sort, Quick Sort, and Bubble Sort",
+					"Implemented real-time visualization with customizable inputs and adjustable speeds for better algorithm comprehension, allowing users to interactively explore sorting behaviors",
+					"Showcased the performance differences between algorithms in terms of time complexity, space efficiency, and best/worst case scenarios, helping users understand algorithmic trade-offs"
+				]
+			},
+			{
 				"title": "Expression Parser",
 				"description": [
-					"Developed a mathematical expression parser using Python with recursive descent parsing for correct operator precedence",
-					"Handled division by zero and syntax errors to ensure robustness and reliability",
-					"Improved knowledge of compiler design and how programming languages process input"
+					"Developed a Python-based mathematical expression parser using recursive descent parsing, ensuring correct operator precedence and supporting complex expressions, including parentheses and exponentiation",
+					"Implemented error handling for division by zero, invalid syntax, and edge cases to ensure robustness and reliability in various input scenarios, providing meaningful error messages to users",
+					"Improved my understanding of compiler design, including abstract syntax trees and parsing techniques, while enhancing skills in handling arithmetic computations efficiently"
 				]
 			},
 			{
@@ -79,33 +112,26 @@
 					"Designed the site to be easy to navigate across different screen sizes",
 					"Served as a practice project to improve front-end development skills with modern technologies"
 				]
-			},
-			{
-				"title": "Resume Generator",
-				"description": [
-					"Developed a resume generator using Next.js and TypeScript to streamline resume creation",
-					"Implemented dynamic templates and form validation to simplify formatting",
-					"Facilitates the generation of structured resumes by allowing users to input their information and receive a well-formatted document"
-				]
 			}
 		]
 	},
-	"experience": {
-		"title": "Experience",
+	"courses": {
+		"title": "Coursework",
 		"items": [
-			{
-				"role": "Coding Support Assistant",
-				"responsibilities": [
-					"Helped community members debug and improve code in Python and JavaScript",
-					"Assisted users with problem-solving and understanding programming concepts",
-					"Providing support contributed to reinforcing knowledge and maintaining familiarity with learned topics"
-				],
-				"company": "Discord Communities",
-				"startDate": "2022",
-				"endDate": "Present",
-				"state": "São Paulo",
-				"country": "Brazil"
-			}
+			"Algorithms & Data Structures",
+			"Software Engineering",
+			"Systems Development",
+			"Web Development",
+			"Precalculus"
+		]
+	},
+	"interests": {
+		"title": "Interests",
+		"items": [
+			"Algorithm Design & Optimization",
+			"Computer Science",
+			"Competitive Programming",
+			"Online Games"
 		]
 	}
 }

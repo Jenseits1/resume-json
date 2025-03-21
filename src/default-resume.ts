@@ -1,8 +1,14 @@
 export const defaultResume = {
 	metadata: {
-		resumeName: "Senior SWE Example",
-		sectionsOrder: ["skills", "experience", "education", "projects"],
-		disabledSections: [],
+		resumeName: "SWE Example",
+		sections: [
+			"skills",
+			"experience",
+			"education",
+			"projects",
+			"courses",
+			"interests",
+		],
 	},
 	header: {
 		fullName: "John Doe",
@@ -19,18 +25,26 @@ export const defaultResume = {
 			{
 				institution: "Stanford University",
 				degree: "Master of Science in Computer Science",
-				startDate: "2019",
-				endDate: "2021",
-				state: "California",
-				country: "USA",
+				date: {
+					start: "2019",
+					end: "2021",
+				},
+				location: {
+					state: "California",
+					country: "USA",
+				},
 			},
 			{
 				institution: "Massachusetts Institute of Technology (MIT)",
 				degree: "Bachelor of Science in Computer Science",
-				startDate: "2015",
-				endDate: "2019",
-				state: "Massachusetts",
-				country: "USA",
+				date: {
+					start: "2015",
+					end: "2019",
+				},
+				location: {
+					state: "Massachusetts",
+					country: "USA",
+				},
 			},
 		],
 	},
@@ -103,31 +117,62 @@ export const defaultResume = {
 		title: "Experience",
 		items: [
 			{
-				role: "Senior Software Engineer",
-				company: "Google",
-				startDate: "2022",
-				endDate: "Present",
-				state: "California",
-				country: "USA",
+				role: "Software Engineer",
+				company: "Meta (Facebook)",
+				date: {
+					start: "2019",
+					end: "Present",
+				},
+				location: {
+					state: "California",
+					country: "USA",
+				},
 				responsibilities: [
-					"Led a team of engineers to build scalable backend services for Google Cloud, focusing on high availability and performance optimization.",
-					"Designed and implemented a high-throughput distributed event processing system, reducing latency by 30%.",
-					"Contributed to open-source projects improving service discovery and load balancing, which were adopted by multiple teams across the organization.",
+					"Developed high-performance GraphQL APIs used by Facebook, Instagram, and WhatsApp to serve millions of active users",
+					"Optimized caching strategies, reducing database load by 40% and boosting overall service performance",
+					"Collaborated with AI teams to integrate recommendation algorithms, increasing user engagement",
 				],
 			},
 			{
-				role: "Software Engineer",
-				company: "Meta (Facebook)",
-				startDate: "2019",
-				endDate: "2022",
-				state: "California",
-				country: "USA",
+				role: "Software Engineering Intern",
+				company: "Amazon",
+				date: {
+					start: "2017",
+					end: "2019",
+				},
+				location: {
+					state: "Washington",
+					country: "USA",
+				},
 				responsibilities: [
-					"Developed highly efficient GraphQL APIs used across Facebook, Instagram, and WhatsApp, supporting millions of users daily.",
-					"Optimized caching layers and implemented a distributed caching system, reducing database load by 40%.",
-					"Collaborated with AI research teams to integrate recommendation algorithms, improving user engagement and experience.",
+					"Assisted in designing cloud-native applications for AWS, ensuring scalability to handle millions of transactions daily",
+					"Developed a real-time analytics pipeline that improved data processing speed by 50%",
+					"Collaborated with senior engineers on enhancing AWS security by integrating automated threat detection and response",
 				],
 			},
+		],
+	},
+	courses: {
+		title: "Coursework",
+		items: [
+			"Advanced Algorithms & Data Structures",
+			"Distributed Systems",
+			"Machine Learning & Deep Learning",
+			"Cloud Computing & Serverless Architectures",
+			"Big Data Analytics",
+			"Computer Vision",
+			"Natural Language Processing",
+			"Cybersecurity & Cryptography",
+		],
+	},
+	interests: {
+		title: "Interests",
+		items: [
+			"Algorithm Design & Optimization",
+			"Artificial Intelligence",
+			"Machine Learning",
+			"Competitive Programming",
+			"Hiking",
 		],
 	},
 };
