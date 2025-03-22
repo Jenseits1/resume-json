@@ -20,11 +20,7 @@ export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 	resume,
 }) => {
 	const { updateResume, deleteResume } = useResume();
-	const [json, setJson] = useState<string>("");
-
-	useEffect(() => {
-		setJson(JSON.stringify(resume, null, 4));
-	}, []);
+	const [json, setJson] = useState<string>(JSON.stringify(resume, null, 4));
 
 	const handleUpdateResume = () => {
 		const validation = validateJson(json);

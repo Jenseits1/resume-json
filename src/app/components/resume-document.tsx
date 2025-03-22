@@ -6,7 +6,7 @@ import { Header } from "@/app/templates/default/header";
 
 const styles = StyleSheet.create({
 	page: {
-		fontSize: 12,
+		fontSize: 13,
 		flexDirection: "column",
 		paddingVertical: 24,
 		paddingHorizontal: 24,
