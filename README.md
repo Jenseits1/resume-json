@@ -26,7 +26,7 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
 -   **Chakra UI 🎨:** Component library for building accessible and responsive user interfaces.
 -   **Monaco Editor ⌨️:** Powerful code editor for JSON editing.
 -   **AJV (Another JSON Validator) 🧐:** JSON schema validator for real-time data validation.
--   **PDF Generation Library 📄** (Specify the library if you use one, ex: react-pdf): Used for generating PDF files.
+-   **React-pdf/renderer 📄:** Used for generating PDF files.
 
 ## 🚀 Getting Started 🚀
 
@@ -76,9 +76,10 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
 
 ## 📝 JSON Schema 📝
 
-Here's the JSON schema used for validating your resume data:
+Here's how the json should look like:
 
-```{
+```json
+{
     "metadata": {
         "resumeName": "SWE Example",
         "sections": [
