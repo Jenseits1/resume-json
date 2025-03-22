@@ -76,7 +76,7 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
 
 ## 📝 JSON Schema 📝
 
-Here's how the json should look like:
+Here's an example of how json structure for resumes look like:
 
 ```json
 {
