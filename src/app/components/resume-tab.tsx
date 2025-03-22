@@ -1,10 +1,10 @@
 "use client";
 import { FunctionComponent, useEffect, useState } from "react";
 import { useResume } from "../contexts/resume.context";
-import { JsonEditor } from "./json/json-editor";
-import { ResumePreview } from "./resume/resume-preview";
+import { JsonEditor } from "./json-editor";
+import { ResumePreview } from "./resume-preview";
 import { Box, Button, Grid } from "@chakra-ui/react";
-import { PdfDownloadButton } from "./resume/pdf-download-button";
+import { PdfDownloadButton } from "./pdf-download-button";
 import { LuDelete, LuSave } from "react-icons/lu";
 import { IResumeContent } from "../types/resume.types";
 import { validateJson } from "../validators/json.validator";

@@ -17,8 +17,8 @@ export const ResumePreviewComponent: FunctionComponent<ResumePreviewProps> = ({
 			width="100%"
 			showToolbar={false}
 			style={{
-				overflow: "hidden", // Prevent horizontal scroll
-				maxWidth: "100%", // Ensure content does not exceed container width
+				overflow: "hidden",
+				maxWidth: "100%",
 			}}
 		>
 			<ResumeDocument resume={resume} />

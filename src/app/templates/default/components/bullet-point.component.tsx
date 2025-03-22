@@ -2,7 +2,6 @@ import { FunctionComponent } from "react";
 import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { BulletPoint } from "@/app/types/resume.types";
 
-// Prevents hyphenation in @react-pdf/renderer
 Font.registerHyphenationCallback((word) => [word]);
 
 const styles = StyleSheet.create({
@@ -15,8 +14,8 @@ const styles = StyleSheet.create({
 		paddingRight: 8,
 	},
 	text: {
-		wordBreak: "break-word", // Moves words to a new line if needed
-		hyphens: "none", // Disables hyphenation */
+		wordBreak: "break-word",
+		hyphens: "none",
 	},
 });
 

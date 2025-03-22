@@ -50,7 +50,6 @@ export interface IEducation {
 	location: ILocation;
 }
 
-// Generic Section Interface
 export interface ISection<T> {
 	title?: string;
 	items?: T[];

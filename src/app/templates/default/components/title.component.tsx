@@ -2,10 +2,9 @@ import { FunctionComponent } from "react";
 import { Text, StyleSheet } from "@react-pdf/renderer";
 import { Title } from "@/app/types/resume.types";
 
-// Define the styles using @react-pdf/renderer's StyleSheet
 const styles = StyleSheet.create({
 	title: {
-		fontWeight: "bold", // Equivalent to Tailwind's font-bold
+		fontWeight: "bold",
 	},
 });
 

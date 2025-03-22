@@ -5,23 +5,23 @@ import { IHeader } from "@/app/types/resume.types";
 const styles = StyleSheet.create({
 	headerContainer: {
 		display: "flex",
-		alignItems: "center", // Equivalent to 'items-center'
+		alignItems: "center",
 		flexDirection: "column",
 		marginBottom: 16,
 	},
 	fullName: {
-		fontSize: 24, // Equivalent to 'text-3xl'
-		fontWeight: "semibold", // Equivalent to 'font-semibold'
+		fontSize: 24,
+		fontWeight: "semibold",
 	},
 	contactsContainer: {
 		display: "flex",
-		flexDirection: "row", // Equivalent to 'flex-wrap justify-center'
+		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "center",
 	},
 	contactLink: {
-		marginRight: 10, // Space between contacts
-		textDecoration: "none", // Remove underline for links
+		marginRight: 10,
+		textDecoration: "none",
 		color: "black",
 	},
 });
