@@ -264,7 +264,7 @@ Here's how the json should look like:
             "Hiking"
         ]
     }
-}
+}```
 
 ## 🤝 Contributing 🤝
 
