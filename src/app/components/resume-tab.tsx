@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { useResume } from "../contexts/resume.context";
 import { JsonEditor } from "./json-editor";
 import { ResumePreview } from "./resume-preview";
