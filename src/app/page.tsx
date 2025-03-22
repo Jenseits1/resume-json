@@ -5,21 +5,11 @@ import { Box, Button, IconButton, Text } from "@chakra-ui/react";
 import { LuMoon, LuPlus, LuSun } from "react-icons/lu";
 import { useResume } from "./contexts/resume.context";
 import { useColorMode } from "@/components/ui/color-mode";
-import { useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
 	const { resumes, createResume } = useResume();
 	const { toggleColorMode, colorMode } = useColorMode();
-	const [isHydrated, setIsHydrated] = useState(false);
-
-	useEffect(() => {
-		setIsHydrated(true);
-	}, []);
-
-	if (!isHydrated) {
-		return null;
-	}
 
 	return (
 		<Box

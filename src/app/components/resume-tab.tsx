@@ -27,10 +27,14 @@ export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 
 		if (validation.valid) {
 			updateResume(id, JSON.parse(json!));
+
+			toaster.success({
+				title: "Resume updated!",
+			});
 		} else {
 			validation.errors.map((error) => {
 				toaster.error({
-					title: "JSON Error",
+					title: "Unable to update resume",
 					description: error,
 				});
 			});
