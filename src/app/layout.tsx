@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	title: "Resume.json",
 	description: "Resume generator app",
 	icons: {
-		icon: "/app-icon.svg",
+		icon: "app-icon.svg",
 	},
 };
 
