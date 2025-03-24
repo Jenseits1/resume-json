@@ -1,14 +1,14 @@
 "use client";
 import { FunctionComponent, useState } from "react";
 import { useResume } from "../providers/resume.provider";
-import { ResumePreview } from "./resume-preview.component";
 import { Box, Button, Grid } from "@chakra-ui/react";
-import { PdfDownloadButton } from "./pdf-download-button.component";
 import { LuDelete, LuSave } from "react-icons/lu";
 import { IResumeContent } from "../types/resume.types";
 import { validateJson } from "../validators/json.validator";
 import { toaster } from "@/components/ui/toaster";
 import { JsonEditorComponent } from "./json-editor.component";
+import { PdfDownloadButtonComponent } from "./pdf-download-button.component";
+import { ResumePreviewComponent } from "./resume-preview.component";
 
 interface ResumeTabComponentProps {
 	id: string;
@@ -53,7 +53,7 @@ export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 					Update
 				</Button>
 
-				<PdfDownloadButton resume={resume} />
+				<PdfDownloadButtonComponent resume={resume} />
 
 				<Button variant="subtle" onClick={() => deleteResume(id)}>
 					<LuDelete />
@@ -74,7 +74,7 @@ export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 					}}
 				/>
 
-				<ResumePreview resume={resume} />
+				<ResumePreviewComponent resume={resume} />
 			</Box>
 		</Box>
 	);

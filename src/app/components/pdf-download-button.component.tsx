@@ -10,7 +10,7 @@ interface PdfDownloadButtonProps {
 	resume: IResumeContent;
 }
 
-export const PdfDownloadButton: FunctionComponent<PdfDownloadButtonProps> = ({
+const PdfDownloadButton: FunctionComponent<PdfDownloadButtonProps> = ({
 	resume,
 }) => {
 	return (

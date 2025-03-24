@@ -7,9 +7,7 @@ interface ResumePreviewProps {
 	resume: IResumeContent;
 }
 
-export const ResumePreview: FunctionComponent<ResumePreviewProps> = ({
-	resume,
-}) => {
+const ResumePreview: FunctionComponent<ResumePreviewProps> = ({ resume }) => {
 	return (
 		<PDFViewer
 			key={JSON.stringify(resume)}
