@@ -4,15 +4,14 @@ import Editor, { OnMount } from "@monaco-editor/react";
 import { jsonSchema } from "../schemas/json.schema";
 import { useColorMode } from "@/components/ui/color-mode";
 
-interface JsonEditorProps {
+interface JsonEditorComponentProps {
 	value?: string;
 	onChange: (value?: string) => void;
 }
 
-export const JsonEditor: FunctionComponent<JsonEditorProps> = ({
-	value,
-	onChange,
-}) => {
+export const JsonEditorComponent: FunctionComponent<
+	JsonEditorComponentProps
+> = ({ value, onChange }) => {
 	const { colorMode } = useColorMode();
 
 	const handleEditorMount: OnMount = (editor, monacoInstance) => {

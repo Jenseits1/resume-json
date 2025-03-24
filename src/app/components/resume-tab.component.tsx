@@ -1,21 +1,21 @@
 "use client";
 import { FunctionComponent, useState } from "react";
-import { useResume } from "../contexts/resume.context";
-import { JsonEditor } from "./json-editor";
-import { ResumePreview } from "./resume-preview";
+import { useResume } from "../providers/resume.provider";
+import { ResumePreview } from "./resume-preview.component";
 import { Box, Button, Grid } from "@chakra-ui/react";
-import { PdfDownloadButton } from "./pdf-download-button";
+import { PdfDownloadButton } from "./pdf-download-button.component";
 import { LuDelete, LuSave } from "react-icons/lu";
 import { IResumeContent } from "../types/resume.types";
 import { validateJson } from "../validators/json.validator";
 import { toaster } from "@/components/ui/toaster";
+import { JsonEditorComponent } from "./json-editor.component";
 
-interface ResumeTabProps {
+interface ResumeTabComponentProps {
 	id: string;
 	resume: IResumeContent;
 }
 
-export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
+export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 	id,
 	resume,
 }) => {
@@ -67,7 +67,7 @@ export const ResumeTab: FunctionComponent<ResumeTabProps> = ({
 				spaceX={{ xl: "4" }}
 				spaceY={{ base: "4", xl: "0" }}
 			>
-				<JsonEditor
+				<JsonEditorComponent
 					value={json}
 					onChange={(updatedJson) => {
 						setJson(updatedJson || "");

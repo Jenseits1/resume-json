@@ -1,13 +1,15 @@
 "use client";
 import { FunctionComponent } from "react";
-import { useResume } from "@/app/contexts/resume.context";
-import { ResumeTab } from "./resume-tab";
 import { Box, Tabs } from "@chakra-ui/react";
 import { LuFileJson } from "react-icons/lu";
+import { ResumeTabComponent } from "./resume-tab.component";
+import { useResume } from "../providers/resume.provider";
 
-interface ResumeTabsProps {}
+interface ResumeTabsComponentProps {}
 
-export const ResumeTabs: FunctionComponent<ResumeTabsProps> = () => {
+export const ResumeTabsComponent: FunctionComponent<
+	ResumeTabsComponentProps
+> = () => {
 	const { resumes } = useResume();
 
 	return (
@@ -28,7 +30,7 @@ export const ResumeTabs: FunctionComponent<ResumeTabsProps> = () => {
 
 					{resumes.map(({ id, resume }) => (
 						<Tabs.Content key={id} value={id}>
-							<ResumeTab {...{ id, resume }} />
+							<ResumeTabComponent {...{ id, resume }} />
 						</Tabs.Content>
 					))}
 				</Tabs.Root>

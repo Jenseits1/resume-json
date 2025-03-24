@@ -2,21 +2,22 @@ import { FunctionComponent, memo } from "react";
 import { Button } from "@chakra-ui/react";
 import { LuDownload } from "react-icons/lu";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { ResumeDocument } from "./resume-document";
+
 import { IResumeContent } from "@/app/types/resume.types";
+import { ResumeDocumentComponent } from "./resume-document.component";
 
 interface PdfDownloadButtonProps {
 	resume: IResumeContent;
 }
 
-export const PdfDownloadButtonComponent: FunctionComponent<
-	PdfDownloadButtonProps
-> = ({ resume }) => {
+export const PdfDownloadButton: FunctionComponent<PdfDownloadButtonProps> = ({
+	resume,
+}) => {
 	return (
 		<PDFDownloadLink
 			style={{ display: "flex" }}
 			key={JSON.stringify(resume)}
-			document={<ResumeDocument resume={resume} />}
+			document={<ResumeDocumentComponent resume={resume} />}
 			fileName={`${resume.metadata?.resumeName}.pdf`}
 		>
 			{({ loading }) => (
@@ -29,4 +30,4 @@ export const PdfDownloadButtonComponent: FunctionComponent<
 	);
 };
 
-export const PdfDownloadButton = memo(PdfDownloadButtonComponent);
+export const PdfDownloadButtonComponent = memo(PdfDownloadButton);

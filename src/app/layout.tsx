@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
-import { ResumeProvider } from "./contexts/resume.context";
+import { ResumeProvider } from "./providers/resume.provider";
 
 export const metadata: Metadata = {
 	title: "Resume.json",

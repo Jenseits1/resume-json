@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
 	},
 });
 
-interface ResumeDocumentProps {
+interface ResumeDocumentComponentProps {
 	resume: IResumeContent;
 }
 
-export const ResumeDocument: FunctionComponent<ResumeDocumentProps> = ({
-	resume,
-}) => {
+export const ResumeDocumentComponent: FunctionComponent<
+	ResumeDocumentComponentProps
+> = ({ resume }) => {
 	const sectionItemsMap = (section: string) => {
 		switch (section) {
 			case "education":

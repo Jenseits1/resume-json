@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
 	},
 });
 
-interface BulletPointProps {
+interface BulletPointComponentProps {
 	bulletPoints?: BulletPoint[];
 }
 
-export const BulletPointComponent: FunctionComponent<BulletPointProps> = ({
-	bulletPoints,
-}) => (
+export const BulletPointComponent: FunctionComponent<
+	BulletPointComponentProps
+> = ({ bulletPoints }) => (
 	<View style={styles.bulletPoints}>
 		{bulletPoints?.map((text, index) => (
 			<View key={index} style={styles.bulletPointText}>

@@ -1,13 +1,13 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import { FunctionComponent, memo } from "react";
-import { ResumeDocument } from "./resume-document";
 import { IResumeContent } from "@/app/types/resume.types";
+import { ResumeDocumentComponent } from "./resume-document.component";
 
 interface ResumePreviewProps {
 	resume: IResumeContent;
 }
 
-export const ResumePreviewComponent: FunctionComponent<ResumePreviewProps> = ({
+export const ResumePreview: FunctionComponent<ResumePreviewProps> = ({
 	resume,
 }) => {
 	return (
@@ -21,9 +21,9 @@ export const ResumePreviewComponent: FunctionComponent<ResumePreviewProps> = ({
 				maxWidth: "100%",
 			}}
 		>
-			<ResumeDocument resume={resume} />
+			<ResumeDocumentComponent resume={resume} />
 		</PDFViewer>
 	);
 };
 
-export const ResumePreview = memo(ResumePreviewComponent);
+export const ResumePreviewComponent = memo(ResumePreview);
