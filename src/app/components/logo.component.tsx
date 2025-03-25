@@ -6,11 +6,11 @@ interface LogoComponentProps {}
 export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 	return (
 		<Box display="flex" alignItems="center">
-			<Icon size="2xl" color="yellow.500">
+			<Icon size="xl" strokeWidth="1" color="yellow.400">
 				<VscJson />
 			</Icon>
 			<Text
-				fontSize="2xl"
+				fontSize="xl"
 				fontFamily="cursive"
 				marginLeft={2}
 				fontWeight="bold"

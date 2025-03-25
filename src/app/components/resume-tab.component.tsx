@@ -71,7 +71,7 @@ export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 				<Alert.Content>
 					<Alert.Title>Helpful tip</Alert.Title>
 					<Alert.Description>
-						Edit the "sections" inside "metadata" to control which
+						Edit "sections" inside "metadata" to control which
 						sections appear and in which order they will be
 						displayed
 					</Alert.Description>
