@@ -12,10 +12,6 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
-	educationH: {
-		display: "flex",
-		flexDirection: "column",
-	},
 });
 
 interface SectionItemProps {

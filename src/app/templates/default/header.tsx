@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "center",
+		Link: {
+			marginRight: 10,
+			textDecoration: "none",
+			color: "black",
+		},
 	},
 	contactLink: {
 		marginRight: 10,
@@ -25,18 +30,6 @@ const styles = StyleSheet.create({
 		color: "black",
 	},
 });
-
-const handleHref = (key: string, val: string) => {
-	if (key === "email") {
-		return `mailto:${val}`;
-	}
-
-	if (key === "phone") {
-		return "";
-	}
-
-	return val;
-};
 
 interface DefaultHeaderProps {
 	header: IHeader;
@@ -48,15 +41,25 @@ export const Header: FunctionComponent<DefaultHeaderProps> = ({ header }) => {
 			<Text style={styles.fullName}>{header.fullName}</Text>
 
 			<View style={styles.contactsContainer}>
-				{Object.entries(header.contacts).map(([key, value], index) => (
-					<Link
-						key={index}
-						style={styles.contactLink}
-						src={handleHref(key, value)}
-					>
-						{value}
-					</Link>
-				))}
+				<Link style={styles.contactLink}>{header.contacts.phone}</Link>
+
+				<Link
+					style={styles.contactLink}
+					href={`mailto: ${header.contacts.email}`}
+				>
+					{header.contacts.email}
+				</Link>
+
+				<Link style={styles.contactLink} href={header.contacts.github}>
+					{header.contacts.github}
+				</Link>
+
+				<Link
+					style={styles.contactLink}
+					href={header.contacts.linkedin}
+				>
+					{header.contacts.linkedin}
+				</Link>
 			</View>
 		</View>
 	);

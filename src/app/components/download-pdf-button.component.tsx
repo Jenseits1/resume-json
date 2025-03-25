@@ -5,11 +5,11 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { IResumeContent } from "@/app/types/resume.types";
 import { ResumeDocumentComponent } from "./resume-document.component";
 
-interface PdfDownloadButtonProps {
+interface DownloadPDFButtonProps {
 	resume: IResumeContent;
 }
 
-const PdfDownloadButton: FunctionComponent<PdfDownloadButtonProps> = ({
+const DownloadPDFButton: FunctionComponent<DownloadPDFButtonProps> = ({
 	resume,
 }) => {
 	return (
@@ -29,4 +29,4 @@ const PdfDownloadButton: FunctionComponent<PdfDownloadButtonProps> = ({
 	);
 };
 
-export const PdfDownloadButtonComponent = memo(PdfDownloadButton);
+export const DownloadPDFButtonComponent = memo(DownloadPDFButton);
