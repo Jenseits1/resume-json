@@ -1,6 +1,6 @@
 "use client";
 import { FunctionComponent } from "react";
-import { Box, Tabs } from "@chakra-ui/react";
+import { Box, Container, Tabs } from "@chakra-ui/react";
 import { LuFileJson } from "react-icons/lu";
 import { ResumeTabComponent } from "./resume-tab.component";
 import { useResume } from "../providers/resume.provider";
@@ -13,7 +13,7 @@ export const ResumeTabsComponent: FunctionComponent<
 	const { resumes } = useResume();
 
 	return (
-		<>
+		<Container as="div" minHeight="3xl" maxW="full">
 			{resumes && (
 				<Tabs.Root>
 					<Tabs.List>
@@ -35,6 +35,6 @@ export const ResumeTabsComponent: FunctionComponent<
 					))}
 				</Tabs.Root>
 			)}
-		</>
+		</Container>
 	);
 };

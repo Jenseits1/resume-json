@@ -38,8 +38,8 @@ export const JsonEditorComponent: FunctionComponent<
 
 	return (
 		<Editor
-			height={500}
 			width="100%"
+			height={500}
 			theme={colorMode == "dark" ? "vs-dark" : "light"}
 			defaultLanguage="json"
 			onChange={onChange}

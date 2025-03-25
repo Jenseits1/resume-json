@@ -1,7 +1,7 @@
 "use client";
 import { FunctionComponent, useState } from "react";
 import { useResume } from "../providers/resume.provider";
-import { Box, Button, Grid } from "@chakra-ui/react";
+import { Alert, Box, Button, Grid } from "@chakra-ui/react";
 import { LuDelete, LuSave } from "react-icons/lu";
 import { IResumeContent } from "../types/resume.types";
 import { validateJson } from "../validators/json.validator";
@@ -60,6 +60,23 @@ export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 					Delete
 				</Button>
 			</Grid>
+
+			<Alert.Root
+				status="info"
+				w="fit-content"
+				borderStartWidth="5px"
+				borderStartColor="fg.info"
+			>
+				<Alert.Indicator />
+				<Alert.Content>
+					<Alert.Title>Helpful tip</Alert.Title>
+					<Alert.Description>
+						Edit the "sections" inside "metadata" to control which
+						sections appear and in which order they will be
+						displayed
+					</Alert.Description>
+				</Alert.Content>
+			</Alert.Root>
 
 			<Box
 				display="flex"
