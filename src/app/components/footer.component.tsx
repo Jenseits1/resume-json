@@ -12,7 +12,7 @@ export const FooterComponent: FunctionComponent<FooterComponentProps> = () => {
 			<Box display="flex" alignItems="center">
 				<Text color="fg.muted" marginRight={2}>
 					&copy; {new Date().getFullYear()} Built by Washington Bueno.
-					Thanks for choosing Resume.json!
+					Thank you for choosing Resume.json!
 				</Text>
 
 				<Icon color="red.500">
