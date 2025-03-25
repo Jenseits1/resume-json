@@ -1,7 +1,6 @@
 "use client";
 import { FunctionComponent } from "react";
-import { Box, Container, Tabs } from "@chakra-ui/react";
-import { LuFileJson } from "react-icons/lu";
+import { Container, Tabs } from "@chakra-ui/react";
 import { ResumeTabComponent } from "./resume-tab.component";
 import { useResume } from "../providers/resume.provider";
 
@@ -19,10 +18,6 @@ export const ResumeTabsComponent: FunctionComponent<
 					<Tabs.List>
 						{resumes.map(({ id, resume }) => (
 							<Tabs.Trigger key={id} value={id}>
-								<Box hideBelow="md">
-									<LuFileJson />
-								</Box>
-
 								{`${resume.metadata?.resumeName}.json`}
 							</Tabs.Trigger>
 						))}
