@@ -13,7 +13,7 @@ export const MotivationPhraseComponent: FunctionComponent<
 			</Text>
 
 			<Icon size="2xl">
-				<img src="/rocket.svg" alt="Rocket" />
+				<img src="rocket.svg" alt="Rocket" />
 			</Icon>
 		</Box>
 	);
