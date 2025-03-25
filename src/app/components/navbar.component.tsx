@@ -16,14 +16,12 @@ export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 		<Container as="nav" paddingY={4} spaceY={4} maxW="full">
 			<LogoComponent />
 
+			<MotivationPhraseComponent />
+
 			<Box display="flex" justifyContent="space-between">
-				<Button
-					disabled={resumes.length >= 4}
-					variant="subtle"
-					onClick={createResume}
-				>
+				<Button disabled={resumes.length >= 4} onClick={createResume}>
 					<LuPlus />
-					New Resume
+					Create new resume
 				</Button>
 
 				<Box display="flex" justifyItems="center" alignItems="center">
@@ -44,8 +42,6 @@ export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 					</IconButton>
 				</Box>
 			</Box>
-
-			<MotivationPhraseComponent />
 		</Container>
 	);
 };

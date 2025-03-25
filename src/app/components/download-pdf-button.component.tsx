@@ -20,9 +20,14 @@ const DownloadPDFButton: FunctionComponent<DownloadPDFButtonProps> = ({
 			fileName={`${resume.metadata?.resumeName}.pdf`}
 		>
 			{({ loading }) => (
-				<Button flex="1" variant="subtle" loading={loading}>
+				<Button
+					flex="1"
+					variant="surface"
+					colorPalette="blue"
+					loading={loading}
+				>
 					<LuDownload />
-					Download
+					Download PDF
 				</Button>
 			)}
 		</PDFDownloadLink>

@@ -3,7 +3,7 @@ import { validateJson } from "../validators/json.validator";
 import { useResume } from "../providers/resume.provider";
 import { toaster } from "@/components/ui/toaster";
 import { Button } from "@chakra-ui/react";
-import { LuSave } from "react-icons/lu";
+import { LuSave, LuUpload } from "react-icons/lu";
 
 interface UpdateResumeButtonComponentProps {
 	id: string;
@@ -35,8 +35,12 @@ export const UpdateResumeButtonComponent: FunctionComponent<
 	};
 
 	return (
-		<Button variant="subtle" onClick={handleUpdateResume}>
-			<LuSave />
+		<Button
+			variant="surface"
+			colorPalette="green"
+			onClick={handleUpdateResume}
+		>
+			<LuUpload />
 			Update
 		</Button>
 	);
