@@ -1,4 +1,3 @@
-"use client";
 import { FunctionComponent, useState } from "react";
 import { useResume } from "../providers/resume.provider";
 import { Alert, Box, Button, Grid } from "@chakra-ui/react";

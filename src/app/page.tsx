@@ -6,7 +6,7 @@ import { FooterComponent } from "./components/footer.component";
 
 export default function Home() {
 	return (
-		<Container as="body" maxW="115rem">
+		<Container maxW="115rem">
 			<NavbarComponent />
 
 			<ResumeTabsComponent />
