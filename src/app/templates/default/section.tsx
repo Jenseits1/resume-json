@@ -40,7 +40,6 @@ export const Section: FunctionComponent<SectionProps> = ({
 				(section.items as Exclude<ISectionItem, string>[]).map(
 					(item, index) => (
 						<SectionItem
-							index={index}
 							sectionName={sectionName}
 							key={index}
 							item={item}

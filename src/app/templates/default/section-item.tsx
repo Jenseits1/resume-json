@@ -15,13 +15,11 @@ const styles = StyleSheet.create({
 });
 
 interface SectionItemProps {
-	index: number;
 	item: Exclude<ISectionItem, string>;
 	sectionName: string;
 }
 
 export const SectionItem: FunctionComponent<SectionItemProps> = ({
-	index,
 	item,
 	sectionName,
 }) => {
@@ -34,7 +32,7 @@ export const SectionItem: FunctionComponent<SectionItemProps> = ({
 		);
 
 	return (
-		<View style={{ marginTop: index == 0 ? 0 : 4 }}>
+		<View>
 			<View style={styles.sectionItemHeader}>
 				<View>
 					<TitleComponent title={item.title} />
