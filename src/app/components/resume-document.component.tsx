@@ -1,16 +1,40 @@
 import React, { FunctionComponent } from "react";
-import { Document, Page, StyleSheet } from "@react-pdf/renderer";
+import { Document, Font, Page, StyleSheet } from "@react-pdf/renderer";
 import { IResumeContent } from "@/app/types/resume.types";
 import { Section } from "@/app/templates/default/section";
 import { Header } from "@/app/templates/default/header";
 
+Font.register({
+	family: "Arial",
+	src: "fonts/ARIAL.ttf",
+});
+
+Font.register({
+	family: "Arial",
+	src: "fonts/ARIALBD.ttf",
+	fontWeight: "bold",
+});
+
+Font.register({
+	family: "Arial",
+	src: "fonts/ARIALI.ttf",
+	fontStyle: "italic",
+});
+
+Font.register({
+	family: "Arial",
+	src: "fonts/ARIALBI.ttf",
+	fontWeight: "bold",
+	fontStyle: "italic",
+});
+
 const styles = StyleSheet.create({
 	page: {
-		fontSize: 13,
+		fontSize: 12,
 		flexDirection: "column",
 		paddingVertical: 24,
 		paddingHorizontal: 24,
-		fontFamily: "Times-Roman",
+		fontFamily: "Arial",
 	},
 });
 
@@ -21,7 +45,7 @@ interface ResumeDocumentComponentProps {
 export const ResumeDocumentComponent: FunctionComponent<
 	ResumeDocumentComponentProps
 > = ({ resume }) => {
-	const sectionItemsMap = (section: string) => {
+	const mapSectionItems = (section: string) => {
 		switch (section) {
 			case "education":
 				return resume.education?.items?.map(
@@ -79,9 +103,10 @@ export const ResumeDocumentComponent: FunctionComponent<
 						return (
 							<Section
 								key={index}
+								sectionName={section}
 								section={{
 									title: sectionData?.title,
-									items: sectionItemsMap(section),
+									items: mapSectionItems(section),
 								}}
 							/>
 						);

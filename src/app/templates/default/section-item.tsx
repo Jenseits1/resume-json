@@ -15,22 +15,29 @@ const styles = StyleSheet.create({
 });
 
 interface SectionItemProps {
+	index: number;
 	item: Exclude<ISectionItem, string>;
+	sectionName: string;
 }
 
-export const SectionItem: FunctionComponent<SectionItemProps> = ({ item }) => {
+export const SectionItem: FunctionComponent<SectionItemProps> = ({
+	index,
+	item,
+	sectionName,
+}) => {
+	if (sectionName == "skills")
+		return (
+			<Text>
+				<TitleComponent title={`${item.title}: `} />
+				{item.itemList?.join(", ")}
+			</Text>
+		);
+
 	return (
-		<View>
+		<View style={{ marginTop: index == 0 ? 0 : 4 }}>
 			<View style={styles.sectionItemHeader}>
 				<View>
-					{item.itemList ? (
-						<Text>
-							<TitleComponent title={item.title + ": "} />
-							{item.itemList?.join(", ")}
-						</Text>
-					) : (
-						<TitleComponent title={item.title} />
-					)}
+					<TitleComponent title={item.title} />
 					<SubtitleComponent subtitle={item.subtitle} />
 				</View>
 				{item.date && item.location && (

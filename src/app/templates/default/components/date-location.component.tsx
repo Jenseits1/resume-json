@@ -8,12 +8,6 @@ const styles = StyleSheet.create({
 		flexDirection: "column",
 		alignItems: "flex-end",
 	},
-	date: {
-		fontStyle: "italic",
-	},
-	location: {
-		fontWeight: "bold",
-	},
 });
 
 interface DateLocationComponentProps {
@@ -26,10 +20,10 @@ export const DateLocationComponent: FunctionComponent<
 > = ({ date, location }) => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.location}>
+			<Text>
 				{location?.state}, {location?.country}
 			</Text>
-			<Text style={styles.date}>
+			<Text>
 				{date?.start} - {date?.end}
 			</Text>
 		</View>

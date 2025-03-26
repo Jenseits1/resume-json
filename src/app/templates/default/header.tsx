@@ -7,25 +7,20 @@ const styles = StyleSheet.create({
 		display: "flex",
 		alignItems: "center",
 		flexDirection: "column",
-		marginBottom: 16,
+		marginBottom: 8,
 	},
 	fullName: {
 		fontSize: 24,
-		fontWeight: "semibold",
+		fontWeight: "bold",
 	},
 	contactsContainer: {
 		display: "flex",
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "center",
-		Link: {
-			marginRight: 10,
-			textDecoration: "none",
-			color: "black",
-		},
 	},
 	contactLink: {
-		marginRight: 10,
+		marginLeft: 16,
 		textDecoration: "none",
 		color: "black",
 	},

@@ -20,9 +20,13 @@ const styles = StyleSheet.create({
 
 interface SectionProps {
 	section?: ISection<ISectionItem>;
+	sectionName: string;
 }
 
-export const Section: FunctionComponent<SectionProps> = ({ section }) => {
+export const Section: FunctionComponent<SectionProps> = ({
+	section,
+	sectionName,
+}) => {
 	if (!section?.items?.length) return null;
 
 	return (
@@ -30,11 +34,18 @@ export const Section: FunctionComponent<SectionProps> = ({ section }) => {
 			<Text style={styles.title}>{section.title}</Text>
 			<View style={styles.divider} />
 
-			{typeof section.items[0] === "string" ? (
+			{["interests", "courses"].includes(sectionName) ? (
 				<Text>{section.items.join(", ")}</Text>
 			) : (
 				(section.items as Exclude<ISectionItem, string>[]).map(
-					(item, index) => <SectionItem key={index} item={item} />
+					(item, index) => (
+						<SectionItem
+							index={index}
+							sectionName={sectionName}
+							key={index}
+							item={item}
+						/>
+					)
 				)
 			)}
 		</View>
