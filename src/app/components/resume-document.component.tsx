@@ -6,26 +6,12 @@ import { Header } from "@/app/templates/default/header";
 
 Font.register({
 	family: "Arial",
-	src: "fonts/ARIAL.ttf",
-});
-
-Font.register({
-	family: "Arial",
-	src: "fonts/ARIALBD.ttf",
-	fontWeight: "bold",
-});
-
-Font.register({
-	family: "Arial",
-	src: "fonts/ARIALI.ttf",
-	fontStyle: "italic",
-});
-
-Font.register({
-	family: "Arial",
-	src: "fonts/ARIALBI.ttf",
-	fontWeight: "bold",
-	fontStyle: "italic",
+	fonts: [
+		{ src: "fonts/arial.ttf", fontWeight: "normal", fontStyle: "normal" },
+		{ src: "fonts/arialbd.ttf", fontWeight: "bold", fontStyle: "normal" },
+		{ src: "fonts/ariali.ttf", fontWeight: "normal", fontStyle: "italic" },
+		{ src: "fonts/arialbi.ttf", fontWeight: "bold", fontStyle: "italic" },
+	],
 });
 
 const styles = StyleSheet.create({

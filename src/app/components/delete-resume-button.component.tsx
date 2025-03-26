@@ -1,6 +1,6 @@
 import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
-import { LuCross, LuDelete, LuX } from "react-icons/lu";
+import { LuX } from "react-icons/lu";
 import { useResume } from "../providers/resume.provider";
 
 interface DeleteResumeButtonComponentProps {

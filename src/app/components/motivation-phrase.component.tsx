@@ -1,4 +1,4 @@
-import { Box, Icon, Text } from "@chakra-ui/react";
+import { Box, Icon, Text, Image } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 
 interface MotivationPhraseComponentProps {}
@@ -13,7 +13,7 @@ export const MotivationPhraseComponent: FunctionComponent<
 			</Text>
 
 			<Icon size="2xl">
-				<img src="rocket.svg" alt="Rocket" />
+				<Image src="rocket.svg" alt="Rocket" />
 			</Icon>
 		</Box>
 	);

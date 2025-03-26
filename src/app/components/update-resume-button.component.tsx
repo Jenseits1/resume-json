@@ -3,7 +3,7 @@ import { validateJson } from "../validators/json.validator";
 import { useResume } from "../providers/resume.provider";
 import { toaster } from "@/components/ui/toaster";
 import { Button } from "@chakra-ui/react";
-import { LuSave, LuUpload } from "react-icons/lu";
+import { LuUpload } from "react-icons/lu";
 
 interface UpdateResumeButtonComponentProps {
 	id: string;
