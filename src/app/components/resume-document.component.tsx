@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { Document, Font, Page, StyleSheet } from "@react-pdf/renderer";
+import { Document, Font } from "@react-pdf/renderer";
 import { IResumeContent } from "@/app/types/resume.types";
-import { Section } from "@/app/templates/default/section";
-import { Header } from "@/app/templates/default/header";
+import { DefaultTemplate } from "../templates/default/default-template";
 
 Font.register({
 	family: "Arial",
@@ -12,16 +11,6 @@ Font.register({
 		{ src: "fonts/ariali.ttf", fontWeight: "normal", fontStyle: "italic" },
 		{ src: "fonts/arialbi.ttf", fontWeight: "bold", fontStyle: "italic" },
 	],
-});
-
-const styles = StyleSheet.create({
-	page: {
-		fontSize: 12,
-		flexDirection: "column",
-		paddingVertical: 24,
-		paddingHorizontal: 24,
-		fontFamily: "Arial",
-	},
 });
 
 interface ResumeDocumentComponentProps {
@@ -71,33 +60,39 @@ export const ResumeDocumentComponent: FunctionComponent<
 		}
 	};
 
+	const getSections = () => {
+		const sections = [];
+
+		for (const sectionName of resume.metadata?.sections) {
+			const sectionData =
+				resume[
+					sectionName as keyof Omit<
+						IResumeContent,
+						"metadata" | "header"
+					>
+				];
+
+			if (!sectionData) {
+				continue;
+			}
+
+			const section = {
+				sectionName,
+				section: {
+					title: sectionData?.title,
+					items: mapSectionItems(sectionName),
+				},
+			};
+
+			sections.push(section);
+		}
+
+		return sections;
+	};
+
 	return (
 		<Document>
-			<Page style={styles.page}>
-				{resume.header && <Header header={resume.header} />}
-
-				{resume.metadata?.sections.map((section, index) => {
-					const sectionData =
-						resume[
-							section as keyof Omit<
-								IResumeContent,
-								"metadata" | "header"
-							>
-						];
-
-					if (sectionData)
-						return (
-							<Section
-								key={index}
-								sectionName={section}
-								section={{
-									title: sectionData?.title,
-									items: mapSectionItems(section),
-								}}
-							/>
-						);
-				})}
-			</Page>
+			<DefaultTemplate header={resume.header} sections={getSections()} />
 		</Document>
 	);
 };

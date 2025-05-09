@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
 	},
 });
 
-interface DefaultHeaderProps {
+interface HeaderProps {
 	header: IHeader;
 }
 
-export const Header: FunctionComponent<DefaultHeaderProps> = ({ header }) => {
+export const Header: FunctionComponent<HeaderProps> = ({ header }) => {
 	return (
 		<View style={styles.headerContainer}>
 			<Text style={styles.fullName}>{header.fullName}</Text>

@@ -4,9 +4,7 @@ import { ISection, ISectionItem } from "@/app/types/resume.types";
 import { SectionItem } from "./section-item";
 
 const styles = StyleSheet.create({
-	section: {
-		marginBottom: 8,
-	},
+	section: {},
 	title: {
 		fontWeight: "bold",
 		textTransform: "uppercase",
