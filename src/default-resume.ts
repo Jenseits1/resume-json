@@ -17,6 +17,7 @@ export const defaultResume = {
 			email: "johndoe@example.com",
 			github: "https://github.com/johndoe",
 			linkedin: "https://linkedin.com/in/johndoe",
+			website: "",
 		},
 	},
 	education: {

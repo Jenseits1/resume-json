@@ -30,6 +30,7 @@ const contactsSchema = {
 		linkedin: { type: "string" },
 		website: { type: "string" },
 	},
+	required: ["phone", "email", "github", "linkedin", "website"],
 	additionalProperties: false,
 };
 
