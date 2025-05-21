@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 });
 
 interface SectionItemProps {
-	item: Exclude<ISectionItem, string>;
+	item: ISectionItem;
 	sectionName: string;
 }
 
@@ -47,6 +47,8 @@ export const SectionItem: FunctionComponent<SectionItemProps> = ({
 			</View>
 
 			<BulletPointComponent bulletPoints={item.bulletPoints} />
+
+			<Text>{item.itemList?.join(", ")}</Text>
 		</View>
 	);
 };

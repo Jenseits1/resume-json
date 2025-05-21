@@ -54,9 +54,9 @@ export const ResumeDocumentComponent: FunctionComponent<
 					}
 				);
 			case "interests":
-				return resume.interests?.items;
+				return [{ itemList: resume.interests?.items }];
 			case "courses":
-				return resume.courses?.items;
+				return [{ itemList: resume.courses?.items }];
 		}
 	};
 
@@ -72,7 +72,7 @@ export const ResumeDocumentComponent: FunctionComponent<
 					>
 				];
 
-			if (!sectionData) {
+			if (!sectionData || sectionData.items?.length == 0) {
 				continue;
 			}
 

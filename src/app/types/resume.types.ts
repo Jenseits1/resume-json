@@ -14,16 +14,14 @@ export type Title = string;
 export type Subtitle = string;
 export type BulletPoint = string;
 
-export type ISectionItem =
-	| {
-			title?: Title;
-			subtitle?: Subtitle;
-			date?: IDate;
-			location?: ILocation;
-			bulletPoints?: BulletPoint[];
-			itemList?: string[];
-	  }
-	| string;
+export type ISectionItem = {
+	title?: Title;
+	subtitle?: Subtitle;
+	date?: IDate;
+	location?: ILocation;
+	bulletPoints?: BulletPoint[];
+	itemList?: string[];
+};
 
 export interface IExperience {
 	role: Title;
@@ -62,8 +60,8 @@ export interface IResumeContent {
 	projects?: ISection<IProject>;
 	skills?: ISection<ISkills>;
 	education?: ISection<IEducation>;
-	interests?: ISection<ISectionItem>;
-	courses?: ISection<ISectionItem>;
+	interests?: ISection<string>;
+	courses?: ISection<string>;
 }
 
 export interface IResume {

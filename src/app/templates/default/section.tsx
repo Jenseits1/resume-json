@@ -14,10 +14,13 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderColor: "black",
 	},
+	items: {
+		gap: 4,
+	},
 });
 
 interface SectionProps {
-	section?: ISection<ISectionItem>;
+	section: ISection<ISectionItem>;
 	sectionName: string;
 }
 
@@ -32,19 +35,11 @@ export const Section: FunctionComponent<SectionProps> = ({
 			<Text style={styles.title}>{section.title}</Text>
 			<View style={styles.divider} />
 
-			{["interests", "courses"].includes(sectionName) ? (
-				<Text>{section.items.join(", ")}</Text>
-			) : (
-				(section.items as Exclude<ISectionItem, string>[]).map(
-					(item, index) => (
-						<SectionItem
-							sectionName={sectionName}
-							key={index}
-							item={item}
-						/>
-					)
-				)
-			)}
+			<View style={sectionName == "skills" ? {} : styles.items}>
+				{section.items.map((item) => (
+					<SectionItem sectionName={sectionName} item={item} />
+				))}
+			</View>
 		</View>
 	);
 };

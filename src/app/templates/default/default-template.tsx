@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 		fontFamily: "Arial",
 	},
 	sections: {
-		gap: 8,
+		gap: 16,
 	},
 });
 
@@ -42,7 +42,7 @@ export const DefaultTemplate: FunctionComponent<DefaultTemplateProps> = ({
 							section={section.section}
 						/>
 					);
-				})}{" "}
+				})}
 			</View>
 		</Page>
 	);
