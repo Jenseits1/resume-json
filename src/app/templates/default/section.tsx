@@ -36,8 +36,12 @@ export const Section: FunctionComponent<SectionProps> = ({
 			<View style={styles.divider} />
 
 			<View style={sectionName == "skills" ? {} : styles.items}>
-				{section.items.map((item) => (
-					<SectionItem sectionName={sectionName} item={item} />
+				{section.items.map((item, index) => (
+					<SectionItem
+						key={index}
+						sectionName={sectionName}
+						item={item}
+					/>
 				))}
 			</View>
 		</View>
