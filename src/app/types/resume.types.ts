@@ -81,5 +81,6 @@ export interface IHeader {
 		email: string;
 		github: string;
 		linkedin: string;
+		website: string;
 	};
 }

@@ -28,8 +28,8 @@ const contactsSchema = {
 		email: { type: "string" },
 		github: { type: "string" },
 		linkedin: { type: "string" },
+		website: { type: "string" },
 	},
-	required: ["phone", "email", "github", "linkedin"],
 	additionalProperties: false,
 };
 

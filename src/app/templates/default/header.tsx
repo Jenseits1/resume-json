@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { View, Text, StyleSheet, Link } from "@react-pdf/renderer";
 import { IHeader } from "@/app/types/resume.types";
+import { Show } from "@chakra-ui/react";
 
 const styles = StyleSheet.create({
 	headerContainer: {
@@ -36,25 +37,47 @@ export const Header: FunctionComponent<HeaderProps> = ({ header }) => {
 			<Text style={styles.fullName}>{header.fullName}</Text>
 
 			<View style={styles.contactsContainer}>
-				<Link style={styles.contactLink}>{header.contacts.phone}</Link>
+				<Show when={header.contacts.phone}>
+					<Link style={styles.contactLink}>
+						{header.contacts.phone}
+					</Link>
+				</Show>
 
-				<Link
-					style={styles.contactLink}
-					href={`mailto: ${header.contacts.email}`}
-				>
-					{header.contacts.email}
-				</Link>
+				<Show when={header.contacts.email}>
+					<Link
+						style={styles.contactLink}
+						href={`mailto: ${header.contacts.email}`}
+					>
+						{header.contacts.email}
+					</Link>
+				</Show>
 
-				<Link style={styles.contactLink} href={header.contacts.github}>
-					{header.contacts.github}
-				</Link>
+				<Show when={header.contacts.github}>
+					<Link
+						style={styles.contactLink}
+						href={header.contacts.github}
+					>
+						{header.contacts.github}
+					</Link>
+				</Show>
 
-				<Link
-					style={styles.contactLink}
-					href={header.contacts.linkedin}
-				>
-					{header.contacts.linkedin}
-				</Link>
+				<Show when={header.contacts.linkedin}>
+					<Link
+						style={styles.contactLink}
+						href={header.contacts.linkedin}
+					>
+						{header.contacts.linkedin}
+					</Link>
+				</Show>
+
+				<Show when={header.contacts.website}>
+					<Link
+						style={styles.contactLink}
+						href={header.contacts.website}
+					>
+						{header.contacts.website}
+					</Link>
+				</Show>
 			</View>
 		</View>
 	);
