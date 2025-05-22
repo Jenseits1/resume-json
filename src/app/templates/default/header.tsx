@@ -8,11 +8,12 @@ const styles = StyleSheet.create({
 		display: "flex",
 		alignItems: "center",
 		flexDirection: "column",
-		marginBottom: 8,
+		marginBottom: 16,
 	},
 	fullName: {
 		fontSize: 24,
 		fontWeight: "bold",
+		marginBottom: 4,
 	},
 	contactsContainer: {
 		display: "flex",
