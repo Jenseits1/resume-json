@@ -46,8 +46,10 @@ export const SectionItem: FunctionComponent<SectionItemProps> = ({
 			</View>
 
 			<View>
-				{item.bulletPoints?.map((value) => (
-					<BulletPointComponent>{value}</BulletPointComponent>
+				{item.bulletPoints?.map((value, index) => (
+					<BulletPointComponent key={index}>
+						{value}
+					</BulletPointComponent>
 				))}
 			</View>
 
