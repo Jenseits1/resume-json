@@ -38,15 +38,18 @@ export const SectionItem: FunctionComponent<SectionItemProps> = ({
 					<TitleComponent title={item.title} />
 					<SubtitleComponent subtitle={item.subtitle} />
 				</View>
-				{item.date && item.location && (
-					<DateLocationComponent
-						date={item.date}
-						location={item.location}
-					/>
-				)}
+
+				<DateLocationComponent
+					date={item.date}
+					location={item.location}
+				/>
 			</View>
 
-			<BulletPointComponent bulletPoints={item.bulletPoints} />
+			<View>
+				{item.bulletPoints?.map((value) => (
+					<BulletPointComponent>{value}</BulletPointComponent>
+				))}
+			</View>
 
 			<Text>{item.itemList?.join(", ")}</Text>
 		</View>

@@ -20,14 +20,15 @@ interface DateLocationComponentProps {
 export const DateLocationComponent: FunctionComponent<
 	DateLocationComponentProps
 > = ({ date, location }) => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.location}>
-				{location?.state}, {location?.country}
-			</Text>
-			<Text style={styles.date}>
-				{date?.start} - {date?.end}
-			</Text>
-		</View>
-	);
+	if (date && location)
+		return (
+			<View style={styles.container}>
+				<Text style={styles.location}>
+					{location?.state}, {location?.country}
+				</Text>
+				<Text style={styles.date}>
+					{date?.start} - {date?.end}
+				</Text>
+			</View>
+		);
 };

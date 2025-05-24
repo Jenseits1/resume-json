@@ -8,30 +8,32 @@ const styles = StyleSheet.create({
 	bulletPointText: {
 		display: "flex",
 		flexDirection: "row",
+		paddingHorizontal: 16,
 	},
-	bulletPoints: {
-		paddingLeft: 12,
-		paddingRight: 8,
+	bulletPoint: {
+		fontWeight: "bold",
+		position: "absolute",
+		top: -2,
+		fontSize: 16,
 	},
 	text: {
 		wordBreak: "break-word",
 		hyphens: "none",
+		marginLeft: 12,
 	},
 });
 
 interface BulletPointComponentProps {
-	bulletPoints?: BulletPoint[];
+	children: string;
 }
 
 export const BulletPointComponent: FunctionComponent<
 	BulletPointComponentProps
-> = ({ bulletPoints }) => (
-	<View style={styles.bulletPoints}>
-		{bulletPoints?.map((text, index) => (
-			<View key={index} style={styles.bulletPointText}>
-				<Text>• </Text>
-				<Text style={styles.text}>{text}</Text>
-			</View>
-		))}
-	</View>
-);
+> = ({ children }) => {
+	return (
+		<View style={styles.bulletPointText}>
+			<Text style={styles.bulletPoint}>•</Text>
+			<Text style={styles.text}>{children}</Text>
+		</View>
+	);
+};
