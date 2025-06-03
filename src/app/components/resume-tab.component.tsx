@@ -22,7 +22,7 @@ export const ResumeTabComponent: FunctionComponent<ResumeTabComponentProps> = ({
 	return (
 		<Box display="flex" flexDirection="column" spaceY="4">
 			<Grid
-				width={{ base: "sm", md: "lg" }}
+				width={{ base: "56", md: "lg" }}
 				templateColumns="repeat(3, 1fr)"
 				gap={4}
 			>
