@@ -1,4 +1,4 @@
-import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react";
+import { Button, CloseButton, Dialog, Portal, Text } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 import { LuX } from "react-icons/lu";
 import { useResume } from "../providers/resume.provider";
@@ -17,7 +17,8 @@ export const DeleteResumeButtonComponent: FunctionComponent<
 			<Dialog.Trigger asChild>
 				<Button variant="surface" colorPalette="red">
 					<LuX />
-					Delete
+
+					<Text display={{ base: "none", md: "inline" }}>Delete</Text>
 				</Button>
 			</Dialog.Trigger>
 			<Portal>

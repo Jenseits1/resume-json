@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { validateJson } from "../validators/json.validator";
 import { useResume } from "../providers/resume.provider";
 import { toaster } from "@/components/ui/toaster";
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import { LuUpload } from "react-icons/lu";
 
 interface UpdateResumeButtonComponentProps {
@@ -41,7 +41,8 @@ export const UpdateResumeButtonComponent: FunctionComponent<
 			onClick={handleUpdateResume}
 		>
 			<LuUpload />
-			Update
+
+			<Text display={{ base: "none", md: "inline" }}>Update</Text>
 		</Button>
 	);
 };
