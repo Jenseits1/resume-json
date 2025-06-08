@@ -95,14 +95,6 @@ export const defaultResume = {
 					"Deployed using Kubernetes and Istio, reducing operational downtime by 40%",
 				],
 			},
-			{
-				title: "Real-Time AI Chatbot",
-				description: [
-					"Built an AI-powered chatbot with Python and TensorFlow, achieving 95% intent recognition accuracy",
-					"Integrated OpenAI’s GPT model, reducing response latency by 50% through optimized inference",
-					"Deployed using AWS Lambda with WebSocket support, enabling scalability to handle over 500,000 active users",
-				],
-			},
 		],
 	},
 	experience: {
