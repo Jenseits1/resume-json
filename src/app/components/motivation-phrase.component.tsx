@@ -8,9 +8,7 @@ export const MotivationPhraseComponent: FunctionComponent<
 > = () => {
 	return (
 		<Box display="flex" alignItems="center">
-			<Text fontFamily="cursive" fontStyle="oblique" marginRight={2}>
-				Let's create the future you deserve!
-			</Text>
+			<Text marginRight={2}>Let's create the future you deserve!</Text>
 
 			<Icon size="2xl">
 				<Image src="rocket.svg" alt="Rocket" />
