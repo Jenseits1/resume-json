@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 	bulletPointText: {
 		display: "flex",
 		flexDirection: "row",
-		paddingHorizontal: 16,
+		paddingRight: 16,
 	},
 	bulletPoint: {
 		fontWeight: "bold",
