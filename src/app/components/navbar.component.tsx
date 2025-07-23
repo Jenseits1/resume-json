@@ -29,7 +29,7 @@ export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 						variant="ghost"
 						onClick={() =>
 							window.open(
-								"https://github.com/washingtonfbueno/resume-json",
+								"https://github.com/Jenseits1/resume-json",
 								"_blank"
 							)
 						}
