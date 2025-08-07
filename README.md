@@ -1,8 +1,8 @@
-# Resume.json 🚀 - Dynamic Resume Builder 📝
+# Resume.json - Dynamic Resume Builder 📝
 
 Resume.json is your go-to web application for crafting stunning resumes with ease! Built on the robust foundation of Next.js, TypeScript, and Chakra UI, it delivers a seamless and delightful user experience. Dive into real-time JSON editing with the Monaco Editor, explore dynamic resume templates, preview your masterpiece live, and download it instantly as a PDF
 
-## Features ✨
+## Features
 
 -   **Real-time JSON Editing with Monaco Editor :**
     -   Edit your resume data directly in JSON format! The powerful Monaco Editor provides syntax highlighting, making the process smooth and error-free
@@ -24,7 +24,7 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
 -   **Next.js :** React framework for server-side rendering and static site generation
 -   **TypeScript :** Static type checker for enhanced code quality and maintainability
 -   **Chakra UI :** Component library for building accessible and responsive user interfaces
--   **Monaco Editor ⌨:** Powerful code editor for JSON editing
+-   **Monaco Editor :** Powerful code editor for JSON editing
 -   **AJV (Another JSON Validator) :** JSON schema validator for real-time data validation
 -   **React-pdf/renderer :** Used for generating PDF files
 
