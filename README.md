@@ -1,41 +1,41 @@
 # Resume.json 🚀 - Dynamic Resume Builder 📝
 
-Resume.json is your go-to web application for crafting stunning resumes with ease! 🌟 Built on the robust foundation of Next.js, TypeScript, and Chakra UI, it delivers a seamless and delightful user experience. Dive into real-time JSON editing with the Monaco Editor, explore dynamic resume templates, preview your masterpiece live, and download it instantly as a PDF. 💼
+Resume.json is your go-to web application for crafting stunning resumes with ease! Built on the robust foundation of Next.js, TypeScript, and Chakra UI, it delivers a seamless and delightful user experience. Dive into real-time JSON editing with the Monaco Editor, explore dynamic resume templates, preview your masterpiece live, and download it instantly as a PDF.
 
-## ✨ Features ✨
+## Features ✨
 
--   **Real-time JSON Editing with Monaco Editor 💻:**
-    -   Edit your resume data directly in JSON format! 📝 The powerful Monaco Editor provides syntax highlighting, making the process smooth and error-free. 🌈
--   **Live PDF Preview 👁️:**
-    -   See your resume come to life as you edit! 📄 Preview the PDF in real-time to ensure it looks perfect before you download. 💯
--   **Easy PDF Download 📥:**
-    -   Download your professionally formatted resume as a PDF with a single click! ⚡️ Get ready to impress employers!
--   **Multi-Resume Management 📂:**
-    -   Keep track of multiple resumes for different job applications, all in one place! 🗂️ Stay organized and ready for any opportunity.
--   **JSON Format Flexibility 🔄:**
-    -   Utilize the flexibility of JSON for easy resume data management and seamless translation support! 🌐 Break down language barriers and reach a wider audience.
--   **Real-time Validation with AJV ✅:**
-    -   Ensure accuracy with real-time validation against a predefined schema! 🛡️ Get instant feedback as you edit, so your data is always on point.
--   **Built with Next.js, TypeScript, and Chakra UI 🛠️:**
-    -   Experience the speed and responsiveness of modern web technologies! 🚀 Enjoy an accessible and user-friendly interface.
+-   **Real-time JSON Editing with Monaco Editor :**
+    -   Edit your resume data directly in JSON format! The powerful Monaco Editor provides syntax highlighting, making the process smooth and error-free.
+-   **Live PDF Preview :**
+    -   See your resume come to life as you edit! Preview the PDF in real-time to ensure it looks perfect before you download.
+-   **Easy PDF Download :**
+    -   Download your professionally formatted resume as a PDF with a single click! Get ready to impress employers!
+-   **Multi-Resume Management :**
+    -   Keep track of multiple resumes for different job applications, all in one place! Stay organized and ready for any opportunity.
+-   **JSON Format Flexibility :**
+    -   Utilize the flexibility of JSON for easy resume data management and seamless translation support! Break down language barriers and reach a wider audience.
+-   **Real-time Validation with AJV :**
+    -   Ensure accuracy with real-time validation against a predefined schema! Get instant feedback as you edit, so your data is always on point.
+-   **Built with Next.js, TypeScript, and Chakra UI :**
+    -   Experience the speed and responsiveness of modern web technologies! Enjoy an accessible and user-friendly interface.
 
-## 🛠️ Technologies Used 🛠️
+## Technologies Used
 
--   **Next.js ⚛️:** React framework for server-side rendering and static site generation.
--   **TypeScript 📜:** Static type checker for enhanced code quality and maintainability.
--   **Chakra UI 🎨:** Component library for building accessible and responsive user interfaces.
--   **Monaco Editor ⌨️:** Powerful code editor for JSON editing.
--   **AJV (Another JSON Validator) 🧐:** JSON schema validator for real-time data validation.
--   **React-pdf/renderer 📄:** Used for generating PDF files.
+-   **Next.js :** React framework for server-side rendering and static site generation.
+-   **TypeScript :** Static type checker for enhanced code quality and maintainability.
+-   **Chakra UI :** Component library for building accessible and responsive user interfaces.
+-   **Monaco Editor ⌨:** Powerful code editor for JSON editing.
+-   **AJV (Another JSON Validator) :** JSON schema validator for real-time data validation.
+-   **React-pdf/renderer :** Used for generating PDF files.
 
-## 🚀 Getting Started 🚀
+## Getting Started
 
-### 📋 Prerequisites 📋
+### Prerequisites
 
--   Node.js (>= 16.0.0) 📦
--   npm or yarn 🧶
+-   Node.js (>= 16.0.0)
+-   npm or yarn
 
-### ⬇️ Installation ⬇️
+### Installation
 
 1.  Clone the repository:
 
@@ -50,7 +50,7 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
     npm install # or yarn install
     ```
 
-### 🏃 Running the Application 🏃
+### Running the Application
 
 1.  Start the development server:
 
@@ -58,9 +58,9 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
     npm run dev # or yarn dev
     ```
 
-2.  Open your browser and navigate to `http://localhost:3000`. 🌐
+2.  Open your browser and navigate to `http://localhost:3000`.
 
-### 📦 Building for Production 📦
+### Building for Production
 
 1.  Build the application:
 
@@ -74,7 +74,7 @@ Resume.json is your go-to web application for crafting stunning resumes with eas
     npm run start # or yarn start
     ```
 
-## 📝 JSON Schema 📝
+## JSON Schema
 
 Here's an example of how json structure for resumes look like:
 
@@ -259,6 +259,6 @@ Here's an example of how json structure for resumes look like:
 }
 ```
 
-## 📄 License 📄
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
